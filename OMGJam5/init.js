@@ -2,10 +2,16 @@ var canvas = document.getElementById("game");
 var ctx = canvas.getContext("2d");
 const NUM_COLSROWS = 8;
 const TILE_HW = 64;
+const LEFT_ARROW = 37;
+const UP_ARROW = 38;
+const RIGHT_ARROW = 39;
+const DOWN_ARROW = 40;
+const FRAME_RATE = 30;
 
 var rawImages = [
     "art/img/cave.png",
-    "art/img/caveman.png",
+    "art/img/caveman_idle.png",
+    "art/img/caveman_torch.png",
     "art/img/fire.png",
     "art/img/grass.png",
     "art/img/rock.png",
@@ -13,10 +19,17 @@ var rawImages = [
     "art/img/tree.png"
 ];
 
-var images = [];
+var obstacles = [
+    "tree",
+    "rock_wall"
+]
 
+var images = [];
 var map = [];
 var imagesLoaded = 0;
+
+var player;
+var tick = 0;
 
 window.onload = function(){
     init();
@@ -40,8 +53,11 @@ function init(){
 }
 
 function startGame(){
-    //setInterval(update, 1000/30); //set fps to 30
+    player = new PlayerClass(5, 5, getImageByName("caveman_idle"), 15);
+    setPlayerInput();
+    setInterval(update, 1000/FRAME_RATE); //set fps to 30
     drawMap();
+    player.draw();
 }
 
 function loadImage(){
@@ -68,9 +84,10 @@ function initMap(){
         }
     }
 
-    map[3][3] = "caveman";
     map[6][3] = "cave";
-    map[5][5] = "tree";
+    map[5][4] = "tree";
+    map[3][7] = "tree";
+    map[1][4] = "tree";
     map[1][7] = "fire";
     map[1][1] = "rock";
     map[0][0] = "rock_wall";
@@ -105,14 +122,4 @@ function getImageByName(name){
             return images[i];
         }
     }
-}
-
-function ImageClass(path, name){
-    this.image = new Image();
-    this.isLoaded = false;
-    this.image.name = name;
-    this.image.onload = function () {
-        checkImagesLoaded(this.image);
-    }.bind(this);
-    this.image.src = path;
 }
