@@ -128,3 +128,24 @@ function Rock(x, y){
 
     map[x][y] = "rock";
 }
+
+function SoundClass(src) {
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+
+    this.isPlaying = false;
+
+    this.play = function(){
+        if(this.isPlaying == false){
+            this.sound.play();
+            this.isPlaying = true;
+        }
+    }
+    this.stop = function(){
+        this.sound.pause();
+    }
+}

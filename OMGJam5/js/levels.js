@@ -1,3 +1,5 @@
+var level = 0;
+
 function loadLevel(levelIndex){
     initMap();
     switch(levelIndex){
@@ -23,6 +25,11 @@ function loadLevel(levelIndex){
                 }
             }
             
+            map[4][1] = "tree";
+            map[4][2] = "tree";
+            map[5][1] = "tree";
+            map[6][1] = "tree";
+            map[6][2] = "tree";
             initRocks([{x: 4, y: 5}, {x: 5, y: 4}, {x: 6, y: 5}, {x: 5, y: 6}]);
             map[5][2] = "cave";
             fire.setPos(2, 5, "fire_idle");

@@ -46,10 +46,11 @@ var imagesLoaded = 0;
 var player;
 var fire;
 var tick = 0;
+var music;
 
-var level = 1;
 var playing;
-var anyKeyPressed = false;
+var anyKeyPressed;
+var beginning = true;
 
 window.onload = function(){
     init();
@@ -72,10 +73,15 @@ function init(){
 }
 
 function startGame(){
+    
     player = new PlayerClass(5, 5, getImageByName("caveman_idle"), 15);
     fire = new AnimatedObjectClass(2, 2, getImageByName("fire_idle"), 15);
     setPlayerInput();
     loadLevel(level);
+    if(music == null){
+        music = new SoundClass("sound/music/Faning_the_Flames.mp3");
+        music.play();
+    }
     playing = setInterval(update, FRAME_RATE); //set fps to 30
 }
 
@@ -84,7 +90,7 @@ function loadImage(){
         var name = rawImages[imagesLoaded]; //used to get name from rawImage name
         var img = new ImageClass(name, name.substring(8, name.length - 4));
     } else {
-        startGame();
+        startMenu();
     }
 }
 

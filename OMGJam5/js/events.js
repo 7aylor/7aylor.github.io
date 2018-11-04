@@ -29,10 +29,12 @@ function anyKey(){
 }
 
 function loadNextLevel(evt){
-    if(anyKeyPressed){
+    if(anyKeyPressed || beginning){
+        console.log("load");
         level++;
         startGame();
         anyKeyPressed = false;
+        beginning = false;
     }
 }
 
