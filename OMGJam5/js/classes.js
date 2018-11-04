@@ -8,8 +8,8 @@ function ImageClass(path, name){
     this.image.src = path;
 }
 
-function PlayerClass(x, y, sprite_sheet, animation_speed){
-    AnimatedObjectClass.call(this, x, y, sprite_sheet, animation_speed);
+function PlayerClass(x, y, sprite_sheet, background, animation_speed){
+    AnimatedObjectClass.call(this, x, y, sprite_sheet, background, animation_speed);
 
     console.log("x: " + x + " y: " + y);
     this.hasFire = false;
@@ -34,7 +34,7 @@ function PlayerClass(x, y, sprite_sheet, animation_speed){
                     ctx.fillStyle = "rgb(0,0,0,0.5)";
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.font="30px Verdana";
+                    ctx.font="30px stone";
                     ctx.textAlign="center"; 
                     ctx.fillStyle = "white";
                     ctx.fillText("Level " + level + " complete!", canvas.width/2, canvas.height/2);
@@ -71,7 +71,7 @@ function PlayerClass(x, y, sprite_sheet, animation_speed){
     }
 }
 
-function AnimatedObjectClass(x, y, sprite_sheet, animation_speed){
+function AnimatedObjectClass(x, y, sprite_sheet, background, animation_speed){
     this.tileX = x;
     this.tileY = y;
     this.img = sprite_sheet;
@@ -79,6 +79,7 @@ function AnimatedObjectClass(x, y, sprite_sheet, animation_speed){
     this.animSpeed = animation_speed;
     this.spriteIndex = 0;
     this.active = true;
+    this.background = background;
     map[this.tileX][this.tileY] = sprite_sheet.name;
     
 
@@ -97,7 +98,7 @@ function AnimatedObjectClass(x, y, sprite_sheet, animation_speed){
     }
 
     this.draw = function(){
-        ctx.drawImage(getImageByName("grass"), this.tileX * TILE_HW, this.tileY * TILE_HW);
+        ctx.drawImage(getImageByName(this.background), this.tileX * TILE_HW, this.tileY * TILE_HW);
         ctx.drawImage(this.img, this.spriteIndex * TILE_HW, 0, TILE_HW, TILE_HW, this.tileX * TILE_HW, this.tileY * TILE_HW, TILE_HW, TILE_HW);
     }
 
@@ -134,16 +135,18 @@ function Rock(x, y){
 }
 
 function SoundClass(src, loop) {
-    /*this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-
+    this.sound = new Audio(src);
+    this.loop = loop; //bool
     this.isPlaying = false;
+    this.looping;
+    this.sound.name = src.slice("sound/music/".length, -4);
+
 
     this.play = function(){
+        console.log("Playing " + this.sound.name);
+        if(this.loop == true && this.isPlaying == false){
+            looping = this.sound.addEventListener("ended", this.replay);
+        }
         if(this.isPlaying == false){
             this.sound.play();
             this.isPlaying = true;
@@ -152,24 +155,15 @@ function SoundClass(src, loop) {
     
     this.stop = function(){
         this.sound.pause();
-    }*/
-
-    this.sound = new Audio(src);
-    this.loop = loop; //bool
-    this.isPlaying = false;
-
-
-    this.play = function(){
-        if(this.loop == true && this.isPlaying == false){
-            this.sound.addEventListener("ended", function() {
-                this.currentTime = 0;
-                this.play();
-            }, false);
-        }
-        if(this.isPlaying == false){
-            this.sound.play();
-            this.isPlaying = true;
-        }
+        this.sound.removeEventListener("ended", this.replay);
     }
-    
+
+    this.replay = function() {
+        this.currentTime = 0;
+        this.play();
+    }
+
+    this.sound.onended = function(){
+        gameEnding = true;
+    }
 }

@@ -21,7 +21,8 @@ var rawImages = [
     "art/img/grass.png",
     "art/img/rock.png",
     "art/img/wall.png",
-    "art/img/tree.png"
+    "art/img/tree.png",
+    "art/img/stone_ground.png"
 ];
 
 var obstacles = [
@@ -51,6 +52,7 @@ var music;
 var playing;
 var anyKeyPressed;
 var beginning = true;
+var gameEnding = false;
 
 window.onload = function(){
     init();
@@ -63,7 +65,6 @@ function init(){
         document.createTextNode("Unsupported browser");
     }
     else{
-        
         canvas.width = 512;
         canvas.height = 512;
         ctx.fillStyle = "#71aa34";
@@ -74,8 +75,8 @@ function init(){
 
 function startGame(){
     
-    player = new PlayerClass(5, 5, getImageByName("caveman_idle"), 15);
-    fire = new AnimatedObjectClass(2, 2, getImageByName("fire_idle"), 15);
+    player = new PlayerClass(5, 5, getImageByName("caveman_idle"), "grass", 15);
+    fire = new AnimatedObjectClass(2, 2, getImageByName("fire_idle"), "grass", 15);
     setPlayerInput();
     loadLevel(level);
     if(music == null){
@@ -90,8 +91,15 @@ function loadImage(){
         var name = rawImages[imagesLoaded]; //used to get name from rawImage name
         var img = new ImageClass(name, name.substring(8, name.length - 4));
     } else {
-        startMenu();
+        document.fonts.load('20pt "stone"').then(loadFont);
     }
+}
+
+function loadFont(){
+    ctx.font = '30px "stone"';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    startMenu();
 }
 
 function checkImagesLoaded(img){

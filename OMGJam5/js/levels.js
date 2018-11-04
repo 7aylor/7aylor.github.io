@@ -116,8 +116,8 @@ function loadLevel(levelIndex){
             break;
 
         case 6:
-            
-            break;
+            winScreen();
+            return;
     }
 
     drawMap();
@@ -127,7 +127,7 @@ function loadLevel(levelIndex){
 function resetFireCaveman(fireX, fireY, caveX, caveY, playerX, playerY){
     map[caveX][caveY] = "cave";
     if(fire == null){
-        fire = new AnimatedObjectClass(fireX, 2, "fire_idle", 15);
+        fire = new AnimatedObjectClass(fireX, 2, "fire_idle", "grass", 15);
     }else{
         fire.setPos(fireX, fireY, "fire_idle");
         fire.img = getImageByName("fire_idle");
