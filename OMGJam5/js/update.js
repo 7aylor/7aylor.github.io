@@ -23,6 +23,18 @@ function movePlayer(evt){
     }
 }
 
+function anyKey(){
+    anyKeyPressed = document.addEventListener("keydown", loadNextLevel);
+}
+
+function loadNextLevel(evt){
+    if(anyKeyPressed){
+        level++;
+        startGame();
+        anyKeyPressed = false;
+    }
+}
+
 //dir is a Vector2
 function moveRock(x, y, dir){
     var rock = getRock(x, y);
@@ -34,17 +46,26 @@ function moveRock(x, y, dir){
 function translateRock(rock, dir, interval){
     
     //check if rock ran into something
-    if(checkValidMapPos(rock.tileX + dir.x, rock.tileY + dir.y) == false){
+    if(checkValidMapPos(rock.tileX + dir.x, rock.tileY + dir.y) == false || 
+       map[rock.tileX + dir.x][rock.tileY + dir.y] == "cave"){
         clearInterval(interval);
         map[rock.tileX][rock.tileY] = "rock";
         return;
     }
 
     //update tile behind rock and rock x and y
-    map[rock.tileX][rock.tileY] = "grass";
+    if(map[rock.tileX][rock.tileY] != "fire_idle" && map[rock.tileX][rock.tileY] != "fire_smoke"){
+        map[rock.tileX][rock.tileY] = "grass";
+    }
     rock.x += (dir.x * ROLL_SPEED);
     rock.y += (dir.y * ROLL_SPEED);
 
+    if(dir == directions.left){
+        rock.rotation -= 45;
+    }
+    else{
+        rock.rotation += 45;
+    }
     //check if off screen
     if(rock.x <= (0 - TILE_HW) || rock.x >= canvas.width || rock.y <= (0 - TILE_HW) || rock.y >= canvas.height){
         ctx.drawImage(getImageByName("grass"), rock.tileX * TILE_HW, rock.tileY * TILE_HW);
@@ -78,10 +99,17 @@ function translateRock(rock, dir, interval){
         //make fire smoke
         if(fire.img.name != "fire_smoke"){
             fire.img = getImageByName("fire_smoke");
+            map[fire.tileX][fire.tileY] = "fire_smoke";
         }
         fire.draw();
     }
 
+    ctx.save();
+    ctx.translate(rock.x + TILE_HW/2, rock.y + TILE_HW/2);
+    ctx.rotate(rock.rotation * Math.PI/180);
+    ctx.translate(-(rock.x + TILE_HW/2), -(rock.y + TILE_HW/2));
+
     //draw rock with new position
     ctx.drawImage(getImageByName("rock"), rock.x, rock.y);
+    ctx.restore();
 }

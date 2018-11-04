@@ -44,6 +44,10 @@ var player;
 var fire;
 var tick = 0;
 
+var level = 1;
+var playing;
+var anyKeyPressed = false;
+
 window.onload = function(){
     init();
 }
@@ -59,10 +63,8 @@ function init(){
         canvas.width = 512;
         canvas.height = 512;
         ctx.fillStyle = "#71aa34";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        initMap();
         loadImage();
-        initRocks();
+        initMap();
     }
 }
 
@@ -70,9 +72,10 @@ function startGame(){
     player = new PlayerClass(5, 5, getImageByName("caveman_idle"), 15);
     fire = new AnimatedObjectClass(2, 2, getImageByName("fire_idle"), 15);
     setPlayerInput();
-    setInterval(update, FRAME_RATE); //set fps to 30
+    loadLevel(level);
     drawMap();
     player.draw();
+    playing = setInterval(update, FRAME_RATE); //set fps to 30
 }
 
 function loadImage(){
@@ -98,41 +101,15 @@ function initMap(){
             map[x][y] = "grass";
         }
     }
-
-    map[5][4] = "tree";
-    map[6][3] = "cave";
-    map[2][6] = "tree";
-    map[1][4] = "tree";
-    map[0][0] = "rock_wall";
-    map[0][1] = "rock_wall";
-    map[0][2] = "rock_wall";
-    map[0][3] = "rock_wall";
-    map[0][4] = "rock_wall";
-    map[0][5] = "rock_wall";
-    map[0][6] = "rock_wall";
-    map[0][7] = "rock_wall";
 }
 
-function drawMap(){
-    for(var x = 0; x < NUM_COLSROWS; x++){
-        for(var y = 0; y < NUM_COLSROWS; y++){
-            ctx.drawImage(getImageByName("grass"), x * TILE_HW, y * TILE_HW);
-        }
+function initRocks(rockObjs){
+    rocks = [];
+    
+    for(var i = 0; i < rockObjs.length; i++){
+        rocks.push(new Rock(rockObjs[i].x, rockObjs[i].y));
     }
-
-    for(var x = 0; x < NUM_COLSROWS; x++){
-        for(var y = 0; y < NUM_COLSROWS; y++){
-            if(getImageByName(map[x][y]) != "grass" && getImageByName(map[x][y]) != "fire_idle"){
-                ctx.drawImage(getImageByName(map[x][y]), x * TILE_HW, y * TILE_HW);
-            }
-        }
-    }
-}
-
-function initRocks(){
-    rocks.push(new Rock(2, 4));
-    rocks.push(new Rock(4, 6));
-    rocks.push(new Rock(7, 6));
+    console.log(map);
 }
 
 function getImageByName(name){
@@ -140,5 +117,38 @@ function getImageByName(name){
         if(images[i].name == name){
             return images[i];
         }
+    }
+}
+
+function loadLevel(levelIndex){
+    initMap();
+    switch(levelIndex){
+        case 1:
+            for(var col = 0; col < NUM_COLSROWS; col++){
+                for(var row = 0; row < NUM_COLSROWS; row++){
+                    if(col == 0 || col == NUM_COLSROWS - 1 || row == 0 || row == NUM_COLSROWS - 1){
+                        map[col][row] = "tree";
+                    }
+                }
+            }
+            
+            map[5][2] = "cave";
+            fire.setPos(2, 2, "fire_idle");
+            break;
+
+        case 2: 
+            for(var col = 0; col < NUM_COLSROWS; col++){
+                for(var row = 0; row < NUM_COLSROWS; row++){
+                    if(col == 0 || col == NUM_COLSROWS - 1 || row == 0 || row == NUM_COLSROWS - 1){
+                        map[col][row] = "tree";
+                    }
+                }
+            }
+            
+            //initRocks([{x: 1, y: 3}, {x: 2, y: 3}, {x: 3, y: 3}, {x: 4, y: 3}, {x: 6, y: 3},]);
+            initRocks([{x: 4, y: 5}, {x: 5, y: 4}, {x: 6, y: 5}, {x: 5, y: 6}]);
+            map[5][2] = "cave";
+            fire.setPos(2, 2, "fire_idle");
+            break;
     }
 }
