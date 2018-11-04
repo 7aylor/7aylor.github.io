@@ -1,4 +1,4 @@
-var level = 3;
+var level = 0;
 
 function loadLevel(levelIndex){
     initMap();
@@ -113,6 +113,10 @@ function loadLevel(levelIndex){
             ]);
 
             resetFireCaveman(1, 5, 2, 0, 5, 4);
+            break;
+
+        case 6:
+            
             break;
     }
 
