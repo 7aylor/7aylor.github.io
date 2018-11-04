@@ -11,9 +11,14 @@ function ImageClass(path, name){
 function PlayerClass(x, y, sprite_sheet, animation_speed){
     AnimatedObjectClass.call(this, x, y, sprite_sheet, animation_speed);
 
+    console.log("x: " + x + " y: " + y);
     this.hasFire = false;
+    this.canMove = true;
 
     this.move = function(newTileX, newTileY, dir){
+        if(this.canMove == false){
+            return;
+        }
 
         if(newTileX < 0 || newTileX >= NUM_COLSROWS || newTileY < 0 || newTileY >= NUM_COLSROWS){
             return;
@@ -23,6 +28,7 @@ function PlayerClass(x, y, sprite_sheet, animation_speed){
             return;
         }
         if(checkValidMapPos(newTileX, newTileY)){
+            //win condition
             if(map[newTileX][newTileY] == "cave"){
                 if(this.hasFire == true){
                     ctx.fillStyle = "rgb(0,0,0,0.5)";
@@ -109,6 +115,7 @@ function Rock(x, y){
     this.x = this.tileX * TILE_HW;
     this.y = this.tileY * TILE_HW;
     this.rotation = 0;
+    this.moving = false;
 
     this.getRockByCoord = function(x, y){
         if(x == this.tileX && y == this.tileY){

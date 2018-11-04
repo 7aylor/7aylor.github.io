@@ -6,8 +6,11 @@ const LEFT_ARROW = 37;
 const UP_ARROW = 38;
 const RIGHT_ARROW = 39;
 const DOWN_ARROW = 40;
+const R = 82;
 const FRAME_RATE = 1000/30;
 const ROLL_SPEED = 8;
+
+var keyDown = false;
 
 var rawImages = [
     "art/img/cave.png",
@@ -73,8 +76,6 @@ function startGame(){
     fire = new AnimatedObjectClass(2, 2, getImageByName("fire_idle"), 15);
     setPlayerInput();
     loadLevel(level);
-    drawMap();
-    player.draw();
     playing = setInterval(update, FRAME_RATE); //set fps to 30
 }
 
@@ -109,7 +110,6 @@ function initRocks(rockObjs){
     for(var i = 0; i < rockObjs.length; i++){
         rocks.push(new Rock(rockObjs[i].x, rockObjs[i].y));
     }
-    console.log(map);
 }
 
 function getImageByName(name){
@@ -117,38 +117,5 @@ function getImageByName(name){
         if(images[i].name == name){
             return images[i];
         }
-    }
-}
-
-function loadLevel(levelIndex){
-    initMap();
-    switch(levelIndex){
-        case 1:
-            for(var col = 0; col < NUM_COLSROWS; col++){
-                for(var row = 0; row < NUM_COLSROWS; row++){
-                    if(col == 0 || col == NUM_COLSROWS - 1 || row == 0 || row == NUM_COLSROWS - 1){
-                        map[col][row] = "tree";
-                    }
-                }
-            }
-            
-            map[5][2] = "cave";
-            fire.setPos(2, 2, "fire_idle");
-            break;
-
-        case 2: 
-            for(var col = 0; col < NUM_COLSROWS; col++){
-                for(var row = 0; row < NUM_COLSROWS; row++){
-                    if(col == 0 || col == NUM_COLSROWS - 1 || row == 0 || row == NUM_COLSROWS - 1){
-                        map[col][row] = "tree";
-                    }
-                }
-            }
-            
-            //initRocks([{x: 1, y: 3}, {x: 2, y: 3}, {x: 3, y: 3}, {x: 4, y: 3}, {x: 6, y: 3},]);
-            initRocks([{x: 4, y: 5}, {x: 5, y: 4}, {x: 6, y: 5}, {x: 5, y: 6}]);
-            map[5][2] = "cave";
-            fire.setPos(2, 2, "fire_idle");
-            break;
     }
 }

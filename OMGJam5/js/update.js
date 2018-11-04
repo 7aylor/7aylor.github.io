@@ -4,37 +4,6 @@ function update(){
     if(fire != null){fire.updateSprite();}
 }
 
-function setPlayerInput(){
-    document.addEventListener("keydown", movePlayer);
-}
-
-function movePlayer(evt){
-    if(evt.keyCode == UP_ARROW){
-        player.move(player.tileX, player.tileY - 1, directions.up);
-    }
-    if(evt.keyCode == LEFT_ARROW){
-        player.move(player.tileX - 1, player.tileY, directions.left);
-    }
-    if(evt.keyCode == DOWN_ARROW){
-        player.move(player.tileX, player.tileY + 1, directions.down);
-    }
-    if(evt.keyCode == RIGHT_ARROW){
-        player.move(player.tileX + 1, player.tileY, directions.right);
-    }
-}
-
-function anyKey(){
-    anyKeyPressed = document.addEventListener("keydown", loadNextLevel);
-}
-
-function loadNextLevel(evt){
-    if(anyKeyPressed){
-        level++;
-        startGame();
-        anyKeyPressed = false;
-    }
-}
-
 //dir is a Vector2
 function moveRock(x, y, dir){
     var rock = getRock(x, y);
@@ -45,11 +14,19 @@ function moveRock(x, y, dir){
 
 function translateRock(rock, dir, interval){
     
+    var newTileX = rock.tileX + dir.x;
+    var newTileY = rock.tileY + dir.y;
+    rock.moving = true;
+    player.canMove = false;
+
     //check if rock ran into something
-    if(checkValidMapPos(rock.tileX + dir.x, rock.tileY + dir.y) == false || 
-       map[rock.tileX + dir.x][rock.tileY + dir.y] == "cave"){
+    if(checkValidMapPos(newTileX, newTileY) == false || 
+       (newTileX >= 0 && newTileX < NUM_COLSROWS && newTileY >= 0 && newTileY < NUM_COLSROWS) &&
+       (map[newTileX][newTileY] == "cave")){
         clearInterval(interval);
         map[rock.tileX][rock.tileY] = "rock";
+        rock.moving = false;
+        player.canMove = true;
         return;
     }
 
@@ -70,7 +47,8 @@ function translateRock(rock, dir, interval){
     if(rock.x <= (0 - TILE_HW) || rock.x >= canvas.width || rock.y <= (0 - TILE_HW) || rock.y >= canvas.height){
         ctx.drawImage(getImageByName("grass"), rock.tileX * TILE_HW, rock.tileY * TILE_HW);
         clearInterval(interval);
-        //removeItemFromArray(rocks, rock);
+        rock.moving = false;
+        player.canMove = true;
         return;
     }
 
@@ -94,7 +72,8 @@ function translateRock(rock, dir, interval){
     }
 
     //redraw fire
-    if((fire.tileX == rock.tileX && fire.tileY == rock.tileY) || (fire.tileX == rock.tileX - dir.x && fire.tileY == rock.tileY - dir.y)){
+    if(fire != null &&((fire.tileX == rock.tileX && fire.tileY == rock.tileY) || 
+        (fire.tileX == rock.tileX - dir.x && fire.tileY == rock.tileY - dir.y))){
         
         //make fire smoke
         if(fire.img.name != "fire_smoke"){
