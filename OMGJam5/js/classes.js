@@ -55,7 +55,7 @@ function PlayerClass(x, y, sprite_sheet, animation_speed){
             if(map[newTileX][newTileY] == "fire_idle"){
                 this.img = getImageByName("caveman_torch");
                 this.hasFire = true;
-                fire = null;
+                fire.active = false;
                 map[newTileX][newTileY] = "grass";
             }
             
@@ -78,17 +78,21 @@ function AnimatedObjectClass(x, y, sprite_sheet, animation_speed){
     this.numSprites = sprite_sheet.width / TILE_HW;
     this.animSpeed = animation_speed;
     this.spriteIndex = 0;
+    this.active = true;
     map[this.tileX][this.tileY] = sprite_sheet.name;
+    
 
     this.updateSprite = function(){
-        if(tick % this.animSpeed == 0){
-            if(this.spriteIndex == this.numSprites - 1){
-                this.spriteIndex = 0;
+        if(this.active == true){
+            if(tick % this.animSpeed == 0){
+                if(this.spriteIndex == this.numSprites - 1){
+                    this.spriteIndex = 0;
+                }
+                else{
+                    this.spriteIndex++;
+                }
+                this.draw();
             }
-            else{
-                this.spriteIndex++;
-            }
-            this.draw();
         }
     }
 
@@ -129,8 +133,8 @@ function Rock(x, y){
     map[x][y] = "rock";
 }
 
-function SoundClass(src) {
-    this.sound = document.createElement("audio");
+function SoundClass(src, loop) {
+    /*this.sound = document.createElement("audio");
     this.sound.src = src;
     this.sound.setAttribute("preload", "auto");
     this.sound.setAttribute("controls", "none");
@@ -145,7 +149,27 @@ function SoundClass(src) {
             this.isPlaying = true;
         }
     }
+    
     this.stop = function(){
         this.sound.pause();
+    }*/
+
+    this.sound = new Audio(src);
+    this.loop = loop; //bool
+    this.isPlaying = false;
+
+
+    this.play = function(){
+        if(this.loop == true && this.isPlaying == false){
+            this.sound.addEventListener("ended", function() {
+                this.currentTime = 0;
+                this.play();
+            }, false);
+        }
+        if(this.isPlaying == false){
+            this.sound.play();
+            this.isPlaying = true;
+        }
     }
+    
 }

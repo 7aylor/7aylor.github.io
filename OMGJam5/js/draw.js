@@ -12,9 +12,9 @@ function drawMap(){
             }
 
             //show tile coords
-            //ctx.fillStyle = "white";
-            //ctx.font = "10px Verdana";
-            //ctx.fillText(x + ", " + y,  (x * TILE_HW) + (TILE_HW/2), (y * TILE_HW) + (TILE_HW/2))
+            ctx.fillStyle = "white";
+            ctx.font = "10px Verdana";
+            ctx.fillText(x + ", " + y,  (x * TILE_HW) + (TILE_HW/2), (y * TILE_HW) + (TILE_HW/2))
         }
     }
 }

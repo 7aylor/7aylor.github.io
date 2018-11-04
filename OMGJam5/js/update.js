@@ -21,8 +21,13 @@ function translateRock(rock, dir, interval){
 
     //check if rock ran into something
     if(checkValidMapPos(newTileX, newTileY) == false || 
-       (newTileX >= 0 && newTileX < NUM_COLSROWS && newTileY >= 0 && newTileY < NUM_COLSROWS) &&
-       (map[newTileX][newTileY] == "cave")){
+       ((newTileX >= 0 && newTileX < NUM_COLSROWS && newTileY >= 0 && newTileY < NUM_COLSROWS) &&
+       (map[newTileX][newTileY] == "cave"))){
+
+        if(rock.tileX == fire.tileX && rock.tileY == fire.tileY){
+            fire.active = false;
+        }
+
         clearInterval(interval);
         map[rock.tileX][rock.tileY] = "rock";
         rock.moving = false;
@@ -72,7 +77,7 @@ function translateRock(rock, dir, interval){
     }
 
     //redraw fire
-    if(fire != null &&((fire.tileX == rock.tileX && fire.tileY == rock.tileY) || 
+    if(fire.active == true && ((fire.tileX == rock.tileX && fire.tileY == rock.tileY) || 
         (fire.tileX == rock.tileX - dir.x && fire.tileY == rock.tileY - dir.y))){
         
         //make fire smoke

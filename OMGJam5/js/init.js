@@ -20,14 +20,14 @@ var rawImages = [
     "art/img/fire_smoke.png",
     "art/img/grass.png",
     "art/img/rock.png",
-    "art/img/rock_wall.png",
+    "art/img/wall.png",
     "art/img/tree.png"
 ];
 
 var obstacles = [
     "tree",
     "rock",
-    "rock_wall"
+    "wall"
 ]
 
 var rocks = [];
@@ -79,7 +79,7 @@ function startGame(){
     setPlayerInput();
     loadLevel(level);
     if(music == null){
-        music = new SoundClass("sound/music/Faning_the_Flames.mp3");
+        music = new SoundClass("sound/music/Faning_the_Flames.mp3", true);
         music.play();
     }
     playing = setInterval(update, FRAME_RATE); //set fps to 30
