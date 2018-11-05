@@ -80,6 +80,7 @@ function loadLevel(levelIndex){
             initRocks([
                 {x: 2, y: 2},
                 {x: 2, y: 3},
+                {x: 3, y: 1},
                 {x: 3, y: 2},
                 {x: 3, y: 4},
                 {x: 4, y: 3}
@@ -116,6 +117,184 @@ function loadLevel(levelIndex){
             break;
 
         case 6:
+            spawnObsAroundMap("wall");
+            // spawnColOfObjs("wall", 2);
+            map[2][2] = "tree";
+            map[2][4] = "tree";
+            map[2][6] = "tree";
+
+            // map[4][2] = "tree";
+            map[4][5] = "tree";
+            // map[5][3] = "tree";
+            map[6][2] = "tree";
+            map[6][5] = "tree";
+
+
+            initRocks([
+                {x: 1, y: 2},
+                {x: 2, y: 4},
+                {x: 3, y: 1},
+                {x: 3, y: 3},
+                {x: 4, y: 2},
+                {x: 4, y: 4},
+                {x: 5, y: 3},
+                {x: 5, y: 6}
+            ]);
+
+            map[2][1] = "grass";
+            map[2][5] = "grass";
+
+            resetFireCaveman(1, 6, 5, 0, 6, 6);
+
+            break;
+
+        case 7:
+            spawnColOfObjs("wall", 1);
+            spawnColOfObjs("wall", 4);
+            spawnColOfObjs("wall", 7);
+            spawnRowOfObjs("wall", 0);
+            
+            map[1][6] = "grass";
+            map[1][7] = "grass";
+            map[0][2] = "wall";
+            map[0][7] = "tree";
+            map[2][4] = "tree";
+            map[3][6] = "tree";
+            map[4][7] = "tree";
+            map[5][6] = "tree";
+            
+            initRocks([
+                {x: 0, y: 6},
+                {x: 1, y: 1},
+                {x: 2, y: 2},
+                {x: 2, y: 6},
+                {x: 3, y: 3},
+                {x: 4, y: 4},
+                {x: 4, y: 7},
+                {x: 5, y: 3},
+                {x: 6, y: 6}
+            ]);
+
+            resetFireCaveman(6, 0, 0, 3, 0, 0);
+
+            break;
+
+        case 8:
+
+            spawnColOfObjs("wall", 7);
+            spawnColOfObjs("tree", 1);
+            spawnRowOfObjs("tree", 0);
+            map[0][0] = "tree";
+            map[0][1] = "tree";
+            map[3][1] = "tree";
+            map[4][1] = "tree";
+            map[5][1] = "tree";
+
+            map[2][7] = "wall";
+            map[3][7] = "wall";
+            map[4][7] = "wall";
+            map[5][7] = "wall";
+            map[6][1] = "wall";
+            map[6][7] = "wall";
+
+            map[1][1] = "grass";
+            map[1][2] = "grass";
+
+            initRocks([
+                {x: 2, y: 2},
+                {x: 3, y: 3},
+                {x: 3, y: 4},
+                {x: 3, y: 5},
+                {x: 4, y: 3},
+                {x: 4, y: 5},
+                {x: 5, y: 3},
+                {x: 5, y: 4},
+                {x: 5, y: 5},
+                {x: 6, y: 2},
+            ]);
+
+            resetFireCaveman(7, 4, 0, 7, 4, 4);
+
+            break;
+
+        case 9: 
+            
+            map[0][2] = "tree";
+            map[0][3] = "tree";
+            map[1][0] = "tree";
+            map[2][2] = "tree";
+            map[3][2] = "tree";
+            map[4][1] = "tree";
+            map[5][1] = "tree";
+            map[7][0] = "tree";
+            map[7][1] = "tree";
+            map[7][3] = "tree";
+
+            map[0][5] = "wall";
+            map[0][6] = "wall";
+            map[0][7] = "wall";
+            map[2][6] = "wall";
+            map[3][6] = "wall";
+            map[6][3] = "wall";
+            map[6][5] = "wall";
+            map[6][7] = "wall";
+            map[7][5] = "wall";
+
+            spawnRowOfObjs("wall", 4);
+            initRocks([
+                {x: 1, y: 6},
+                {x: 2, y: 3},
+                {x: 2, y: 7},
+                {x: 3, y: 4},
+                {x: 4, y: 0},
+                {x: 4, y: 6},
+                {x: 5, y: 4}
+            ]);
+
+            resetFireCaveman(0, 0, 7, 7, 1, 7);
+
+            break;
+
+        case 10: 
+
+            spawnColOfObjs("tree", 0);
+            spawnColOfObjs("wall", 5);
+            map[1][1] = "tree";
+            map[1][3] = "tree";
+            map[1][5] = "tree";
+            map[1][7] = "tree";
+
+            map[3][0] = "wall";
+            map[4][0] = "wall";
+            map[4][1] = "wall";
+            map[4][2] = "wall";
+            map[4][4] = "wall";
+            map[4][6] = "wall";
+            map[6][1] = "wall";
+            map[1][0] = "grass";
+
+            initRocks([
+                {x: 2, y: 2},
+                {x: 3, y: 3},
+                {x: 2, y: 4},
+                {x: 3, y: 5},
+                {x: 2, y: 6},
+                {x: 3, y: 7},
+                {x: 7, y: 1},
+                {x: 7, y: 2},
+                {x: 7, y: 3},
+                {x: 7, y: 4},
+                {x: 7, y: 5},
+                {x: 7, y: 6}
+            ]);
+
+            map[1][0] = "grass";
+            map[5][7] = "grass";
+
+            resetFireCaveman(5, 0, 7, 7, 0, 0);
+            break;
+
+        case 11:
             winScreen();
             return;
     }

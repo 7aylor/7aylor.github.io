@@ -29,6 +29,9 @@ function anyKey(){
 }
 
 function loadNextLevel(evt){
+    clearInterval(startAnimsInterval);
+    startCaveman = null;
+    startFires = null;
     if(anyKeyPressed || beginning){
         console.log("load");
         level++;

@@ -1,9 +1,5 @@
-end scene - caveman sitting in room with fire around
-
 mammoth that rolls ball in 90 deg
 
 push animations
 
-different floors
-
-title screen - rocks rolling around caveman
+plants that boulder can roll over but player can't until after boulder

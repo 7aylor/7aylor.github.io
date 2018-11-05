@@ -20,6 +20,10 @@ function PlayerClass(x, y, sprite_sheet, background, animation_speed){
             return;
         }
 
+        sfx[4].pause();
+        sfx[4].currentTime = 0;
+        sfx[4].play();
+
         if(newTileX < 0 || newTileX >= NUM_COLSROWS || newTileY < 0 || newTileY >= NUM_COLSROWS){
             return;
         }
@@ -35,9 +39,7 @@ function PlayerClass(x, y, sprite_sheet, background, animation_speed){
                     ctx.fillStyle = "rgb(0,0,0,0.5)";
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
-                    ctx.font="30px stone";
-                    ctx.textAlign="center"; 
-                    ctx.fillStyle = "white";
+                    prepareText(30);
                     ctx.fillText("Level " + level + " complete!", canvas.width/2, canvas.height/2);
                     ctx.fillText("Press any key to continue", canvas.width/2, (3 * canvas.height)/4);
                     clearInterval(playing);
@@ -146,6 +148,7 @@ function SoundClass(src, loop, vol) {
     this.sound.volume = vol;
 
     this.play = function(){
+        console.log("playing " + this.name);
         if(this.loop == true && this.isPlaying == false){
             looping = this.sound.addEventListener("ended", this.replay);
         }
@@ -167,7 +170,11 @@ function SoundClass(src, loop, vol) {
     }
 
     this.sound.onended = function(){
+        console.log("end of song");
         this.isPlaying = false;
-        gameEnding = true;
+        if(level == 11){
+            console.log("end of cave song");
+            gameEnding = true;
+        }
     }
 }

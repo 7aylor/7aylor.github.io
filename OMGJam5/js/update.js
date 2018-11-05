@@ -42,12 +42,6 @@ function translateRock(rock, dir, interval){
     rock.x += (dir.x * ROLL_SPEED);
     rock.y += (dir.y * ROLL_SPEED);
 
-    if(dir == directions.left){
-        rock.rotation -= 45;
-    }
-    else{
-        rock.rotation += 45;
-    }
     //check if off screen
     if(rock.x <= (0 - TILE_HW) || rock.x >= canvas.width || rock.y <= (0 - TILE_HW) || rock.y >= canvas.height){
         ctx.drawImage(getImageByName("grass"), rock.tileX * TILE_HW, rock.tileY * TILE_HW);
@@ -86,8 +80,24 @@ function translateRock(rock, dir, interval){
         if(fire.img.name != "fire_smoke"){
             fire.img = getImageByName("fire_smoke");
             map[fire.tileX][fire.tileY] = "fire_smoke";
+            sfx[3].play();
+
+            if(level == 2){
+                drawResetMessage();
+            }
         }
         fire.draw();
+    }
+
+    rotateRock(rock, 45, dir);
+}
+
+function rotateRock(rock, speed, dir){
+    if(dir == directions.left){
+        rock.rotation -= speed;
+    }
+    else{
+        rock.rotation += speed;
     }
 
     ctx.save();

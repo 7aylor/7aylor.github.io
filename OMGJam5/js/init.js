@@ -80,6 +80,7 @@ function startGame(){
     
     player = new PlayerClass(5, 5, getImageByName("caveman_idle"), "grass", 15);
     fire = new AnimatedObjectClass(2, 2, getImageByName("fire_idle"), "grass", 15);
+    gameEnding = false;
     setPlayerInput();
     loadLevel(level);
     if(music == null){
@@ -92,7 +93,9 @@ function startGame(){
 function loadSounds(){
     sfx.push(new Audio("sound/fire.mp3"));
     sfx.push(new Audio("sound/cave.mp3"));
-    sfx.push(new Audio("sound/roll1.mp3"));
+    sfx.push(new Audio("sound/roll.mp3"));
+    sfx.push(new Audio("sound/fire_out.mp3"));
+    sfx.push(new Audio("sound/step.mp3"));
 }
 
 function loadImage(){

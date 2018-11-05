@@ -4,6 +4,8 @@ var fireOffsetY = 0;
 var endScreenPlaying;
 var count = 0;
 var fading;
+var startFires;
+var startCaveman;
 
 function drawMap(){
     for(var x = 0; x < NUM_COLSROWS; x++){
@@ -24,32 +26,69 @@ function drawMap(){
             // ctx.fillText(x + ", " + y,  (x * TILE_HW) + (TILE_HW/2), (y * TILE_HW) + (TILE_HW/2))
         }
     }
+
+    if(level == 1){
+        drawResetMessage();
+    }
 }
 
 function startMenu(){
 
     anyKey();
     ctx.fillStyle = "#71aa34";
-    
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    for(var x = 0; x < NUM_COLSROWS; x++){
-        for(var y = 0; y < NUM_COLSROWS; y++){
-            ctx.drawImage(getImageByName("grass"), x * TILE_HW, y * TILE_HW);
+    startFires = [];
+
+    for(var col = 0; col < NUM_COLSROWS; col++){
+        for(var row = 0; row < NUM_COLSROWS; row++){
+            map[col][row] = "grass";
+            if(col == 0 || col == NUM_COLSROWS - 1 || row == 0 || row == NUM_COLSROWS - 1){
+                map[col][row] = "tree";
+            }
+            if(col > 0 && col < NUM_COLSROWS - 1 && (row == 1 || row == NUM_COLSROWS - 2)){
+               map[col][row] = "wall";
+            }
         }
     }
-    for(var x = 0; x < NUM_COLSROWS; x++){
-        for(var y = 0; y < NUM_COLSROWS; y++){
-            ctx.drawImage(getImageByName("tree"), x * TILE_HW, y * TILE_HW);
-        }
+    
+    map[3][4] = "wall";
+    map[4][3] = "wall";
+    map[4][4] = "cave";
+
+    initRocks([
+        {x: 2, y: 2},
+        {x: 2, y: 5},
+        {x: 5, y: 5},
+        {x: 5, y: 2}
+    ]);
+    
+    startCaveman = new AnimatedObjectClass(3,3, getImageByName("caveman_idle"), "grass", 15);
+    startFires.push(new AnimatedObjectClass(1, 5, getImageByName("fire_idle"), "grass", 15));
+    startFires.push(new AnimatedObjectClass(1, 2, getImageByName("fire_idle"), "grass", 15));
+    startFires.push(new AnimatedObjectClass(6, 2, getImageByName("fire_idle"), "grass", 15));
+    startFires.push(new AnimatedObjectClass(6, 5, getImageByName("fire_idle"), "grass", 15));
+    
+    drawMap();
+    startAnimsInterval = setInterval(moveStartMenuAnims, FRAME_RATE);
+
+    prepareText(30);
+    ctx.fillText("Rock and Rolling Rocks", canvas.width/2, canvas.height/4 - (TILE_HW/2));
+    ctx.fillText("Press any Key to Start", canvas.width/2, 3 * canvas.height/4 + (TILE_HW/2));
+
+}
+
+function moveStartMenuAnims(){
+    tick++;
+    for(var i = 0; i < rocks.length; i++){
+        rotateRock(rocks[i], 25);
     }
 
-    ctx.font="30px stone";
-    ctx.textAlign="center"; 
-    ctx.fillStyle = "white";
-    ctx.fillText("Rock and Rolling Rocks", canvas.width/2, canvas.height/4 + TILE_HW/2);
-    ctx.fillText("Press any Key to Start", canvas.width/2, 3 * canvas.height/4 + TILE_HW/2);
+    for(var i = 0; i < startFires.length; i++){
+        startFires[i].updateSprite();
+    }
 
+    startCaveman.updateSprite();
 }
 
 function winScreen(){
@@ -65,13 +104,11 @@ function winScreen(){
 
     document.removeEventListener("keydown", movePlayer);
     document.removeEventListener("keydown", reset);
-    anyKey();
-    anyKeyPressed = true;
 
     if(music != null){
         music.stop();
     }
-    music = new SoundClass("sound/fire.mp3", false, 0.2);
+    music = new SoundClass("sound/Cave_Sweet_Cave.mp3", false, 0.2);
     music.play();
 
     endScreenPlaying = setInterval(drawInsideCave, FRAME_RATE);
@@ -105,21 +142,15 @@ function drawInsideCave(){
     ctx.drawImage(getImageByName("cave"), 3 * TILE_HW, TILE_HW);
 
     var maskCanvas = document.createElement('canvas');
-    // Ensure same dimensions
+
+    //draw mask for fire light effect
     maskCanvas.width = canvas.width;
     maskCanvas.height = canvas.height;
     var maskCtx = maskCanvas.getContext('2d');
-
-    // This color is the one of the filled shape
-    
     maskCtx.fillStyle = ctx.fillStyle = "rgb(0,0,0,0.7)";;
-    // Fill the mask
     maskCtx.fillRect(0, 0, maskCanvas.width, maskCanvas.height);
-    // Set xor operation
     maskCtx.globalCompositeOperation = 'xor';
-    // Draw the shape you want to take out
 
-    
     if(tick % (player.animSpeed * 2) == 0){
         rad = 1.5 * TILE_HW;
     }
@@ -134,11 +165,9 @@ function drawInsideCave(){
 
     ctx.drawImage(maskCanvas, 0, 0);
 
-    ctx.font="30px stone";
-    ctx.textAlign="center"; 
-    ctx.fillStyle = "white";
+    prepareText(30);
     ctx.fillText("Welcome home!", canvas.width/2, TILE_HW - TILE_HW/2);
-    ctx.font="20px stone";
+    prepareText(20);
     ctx.fillText("Art and Programming: Taylor Buchheit", canvas.width/2, canvas.height - (3 * (TILE_HW/2)));
     ctx.fillText("Music and SFX: Kristin Kirk", canvas.width/2, canvas.height - TILE_HW/2);
 
@@ -146,6 +175,13 @@ function drawInsideCave(){
         clearInterval(endScreenPlaying);
         fading = setInterval(fadeOut, FRAME_RATE);
     }
+}
+
+function drawResetMessage(){
+    ctx.fillStyle = "rgb(0,0,0,0.75)"
+    ctx.fillRect(TILE_HW * 2, canvas.height - TILE_HW, TILE_HW * 4, TILE_HW);
+    prepareText(16);
+    ctx.fillText(" Stuck? Press R to reset", TILE_HW * 4, canvas.height - TILE_HW/2);
 }
 
 function fadeOut(){
@@ -161,4 +197,10 @@ function fadeOut(){
         music = null;
         startMenu();
     }
+}
+
+function prepareText(size){
+    ctx.font= size + "px stone";
+    ctx.textAlign="center"; 
+    ctx.fillStyle = "white";
 }
