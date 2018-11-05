@@ -59,11 +59,13 @@ function translateRock(rock, dir, interval){
 
     //increase rock tile index x
     if(rock.x % TILE_HW== 0){
+        sfx[2].play();
         rock.tileX += dir.x;
     }
 
     //increase rock tile index y
     if(rock.y % TILE_HW == 0){
+        sfx[2].play();
         rock.tileY += dir.y;
     }
 

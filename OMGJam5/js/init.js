@@ -31,6 +31,8 @@ var obstacles = [
     "wall"
 ]
 
+var sfx = [];
+
 var rocks = [];
 
 var directions = {
@@ -69,6 +71,7 @@ function init(){
         canvas.height = 512;
         ctx.fillStyle = "#71aa34";
         loadImage();
+        loadSounds();
         initMap();
     }
 }
@@ -80,10 +83,16 @@ function startGame(){
     setPlayerInput();
     loadLevel(level);
     if(music == null){
-        music = new SoundClass("sound/music/Faning_the_Flames.mp3", true);
+        music = new SoundClass("sound/Faning_the_Flames.mp3", true, 0.2);
         music.play();
     }
     playing = setInterval(update, FRAME_RATE); //set fps to 30
+}
+
+function loadSounds(){
+    sfx.push(new Audio("sound/fire.mp3"));
+    sfx.push(new Audio("sound/cave.mp3"));
+    sfx.push(new Audio("sound/roll1.mp3"));
 }
 
 function loadImage(){
@@ -91,7 +100,7 @@ function loadImage(){
         var name = rawImages[imagesLoaded]; //used to get name from rawImage name
         var img = new ImageClass(name, name.substring(8, name.length - 4));
     } else {
-        document.fonts.load('20pt "stone"').then(loadFont);
+        document.fonts.load('10pt "stone"').then(loadFont);
     }
 }
 

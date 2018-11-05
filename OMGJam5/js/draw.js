@@ -71,7 +71,7 @@ function winScreen(){
     if(music != null){
         music.stop();
     }
-    music = new SoundClass("sound/music/Cave_Sweet_Cave.mp3", false);
+    music = new SoundClass("sound/fire.mp3", false, 0.2);
     music.play();
 
     endScreenPlaying = setInterval(drawInsideCave, FRAME_RATE);

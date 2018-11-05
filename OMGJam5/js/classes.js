@@ -31,6 +31,7 @@ function PlayerClass(x, y, sprite_sheet, background, animation_speed){
             //win condition
             if(map[newTileX][newTileY] == "cave"){
                 if(this.hasFire == true){
+                    sfx[1].play();
                     ctx.fillStyle = "rgb(0,0,0,0.5)";
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
                     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -53,6 +54,8 @@ function PlayerClass(x, y, sprite_sheet, background, animation_speed){
                 return;
             }
             if(map[newTileX][newTileY] == "fire_idle"){
+                sfx[0].play();
+                console.log(sfx[0]);
                 this.img = getImageByName("caveman_torch");
                 this.hasFire = true;
                 fire.active = false;
@@ -134,16 +137,15 @@ function Rock(x, y){
     map[x][y] = "rock";
 }
 
-function SoundClass(src, loop) {
+function SoundClass(src, loop, vol) {
     this.sound = new Audio(src);
     this.loop = loop; //bool
     this.isPlaying = false;
     this.looping;
-    this.sound.name = src.slice("sound/music/".length, -4);
-
+    this.name = src.slice("sound/".length, -4);
+    this.sound.volume = vol;
 
     this.play = function(){
-        console.log("Playing " + this.sound.name);
         if(this.loop == true && this.isPlaying == false){
             looping = this.sound.addEventListener("ended", this.replay);
         }
@@ -155,6 +157,7 @@ function SoundClass(src, loop) {
     
     this.stop = function(){
         this.sound.pause();
+        this.isPlaying = false;
         this.sound.removeEventListener("ended", this.replay);
     }
 
@@ -164,6 +167,7 @@ function SoundClass(src, loop) {
     }
 
     this.sound.onended = function(){
+        this.isPlaying = false;
         gameEnding = true;
     }
 }
