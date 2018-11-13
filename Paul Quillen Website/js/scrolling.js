@@ -5,6 +5,7 @@ let sections = [
     "about",
     "music",
     "media",
+    "events",
     "contact"
 ];
 
@@ -60,7 +61,7 @@ function getClosestSection(up){
     }
 
     if(up == true){
-        if(shortest < 3){
+        if(shortest < 20){
             newSection--;
         }
     }

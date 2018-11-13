@@ -295,7 +295,7 @@ blockquote{
 
 .media-section{
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 30px;
     padding: 0;
     display: grid;
     grid-template-columns: 40% 40%;
@@ -310,6 +310,48 @@ blockquote{
     min-height: 10vh;
 }
 
+.media-section ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;   
+}
+
+.media-section li{
+    margin-bottom: 10px;
+    padding: 0;
+    list-style: none;   
+}
+
+#events{
+    display: block;
+    text-align: center;
+    background: url("../img/mic.jpg") no-repeat fixed top;
+    background-size: cover;
+    color: white;
+}
+
+#events h2{
+    padding-top: 20px;
+}
+
+#events table{
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50%;
+    max-width: 90%;
+    border: none;
+    font-size: 1.2em;
+}
+
+#events tr:nth-child(odd){
+    background-color: rgb(255,255,255,0.5);
+    color: black;
+}
+
+#events tr:nth-child(even){
+    background-color: rgb(0,0,0,0.5);
+    color: white;
+}
 
 #contact{
     display: block;
