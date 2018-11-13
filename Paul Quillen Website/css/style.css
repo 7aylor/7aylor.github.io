@@ -1,0 +1,347 @@
+@font-face {
+    font-family: butler;
+    src: url(../font/Butler_Black.otf);
+}
+
+@font-face {
+    font-family: 'open-sans';
+    src: url(../font/OpenSans-Regular.ttf);
+}
+
+/*color palette:
+
+#727432 - Spanish Bistere (green)
+#0B0602 - Rich Black
+#B39571 - Light Taupe
+#6B5621 - Field Drab (brown)
+#F2DEC5 - Almond
+
+#4D3C10 - Cafe Noir
+#2E2409 - ZINNWALDITE BROWN
+#B39571 - Light Taupe
+#6B5621 - Field Drab (brown)
+#FFFAE6 - Cosmis Latte
+
+*/
+
+:root {
+    --font-heading: 'butler', 'Cinzel', serif;; 
+    --font-normal: 'open-sans', sans-serif;
+    --link-hover-color: #0B0602;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    color: #0B0602;
+    text-align: center;
+    font-family: var(--font-normal);
+    background-color: #0B0602;
+}
+
+h1{
+    font-family: var(--font-heading);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    background: inherit;
+    border: inherit;
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+}
+
+button:hover{
+    cursor: pointer;
+    color: #FFFAE6;
+}
+
+button:focus {
+    outline:0;
+}
+
+#navigator{
+    margin: 0;
+    padding: 3px;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
+#navigator ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+}
+
+#navigator button{
+    height: 32px;
+    width: 32px;
+    color: #FFFAE6;
+}
+
+#navigator button:hover{
+    color: #4D3C10;
+}   
+
+.loader {
+    border: 5px solid #FFFAE6; /* Light grey */
+    border-top: 5px solid #2E2409; /* Blue */
+    border-radius: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#title{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 5em;
+    color: #050709;
+} 
+
+#navbar{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: #050709;
+}
+
+#navbar ul{
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-normal);
+}
+
+#navbar li{
+    list-style: none;
+    margin: 0 20px 0 20px;
+    font-size: 1.5em;
+}
+
+#banner{
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+    background: url("../img/cover_sm.png") no-repeat center;
+    background-size: cover;
+    /*box-shadow: 5px 0px 15px black;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#banner-video{
+    padding: 0;
+    margin: 0 auto;
+    height: 50vh;
+    width: 88vh;
+    max-width: 80vw;
+    max-height: 45vw;
+    display: inline-block;
+    vertical-align: middle;
+    box-shadow: 5px 5px 15px black;
+}
+
+#banner ul{
+    display: flex;
+    margin: 30px auto;
+    padding: 0;
+    width: 88vh;
+    max-width: 80vw;
+    background-color: rgb(0,0,0,0.15);
+    justify-content: center;
+}
+
+#banner li{
+    list-style: none;
+    margin: 5px 20px 5px 20px;
+    padding: 0;
+}
+
+a i{
+    color: #FFFAE6;
+}
+
+a i:hover{
+    color: var(--link-hover-color);
+}
+
+i{
+    font-size: 24px;
+}
+
+main{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    background-image: linear-gradient(to right, #F2DEC5, #B39571);
+}
+
+section{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+}
+
+section h2{
+    margin: 10px;
+    padding: 0;
+    font-size: 32px;
+}
+
+#portrait{
+    max-height: 60vh;
+    max-width: 60vw;
+    margin: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #B39571;
+    justify-self: flex-end;
+}
+
+#about p{
+    margin: 10px;
+}
+
+blockquote{
+    font-style: italic;
+    padding: 20px;
+}
+
+#eugene-weekly{
+    display: block;
+    margin-top: 20px;
+    font-style: normal;
+}
+
+#music{
+    grid-template-columns: 80%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url("../img/set.jpg") no-repeat fixed center;
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#live{
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #B39571;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#media{
+    justify-content: center;
+}
+
+#media-left{
+    background-color: #FFFAE6;
+    min-height: 70vh;
+    max-height: 90vh;
+    border-radius: 5px;
+    box-shadow: 3px 1px 5px #B39571;
+}
+
+#media i{
+    margin-right: 10px;
+}
+
+#media h2{
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#media a{
+    color: #0B0602;
+}
+
+#media a:hover{
+    color: #727432;
+}
+
+.media-section{
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: center;
+}
+
+.media-section .item{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    min-height: 10vh;
+}
+
+
+#contact{
+    display: block;
+    text-align: left;
+    background: url("../img/sunglasses.jpg") no-repeat fixed right;
+    background-size: cover;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+#form{
+    width: 50%;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+}
+
+#contact a{
+    color: white;
+}
+
+footer p{
+    margin: 0 auto;
+    margin-top: -35px;
+    text-align: center;
+    width: 400px;
+    padding: 10px;
+    /*border-top: 1px solid white;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: white;
+}
+

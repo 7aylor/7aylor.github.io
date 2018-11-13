@@ -1,0 +1,92 @@
+<!--Website created by Taylor Buchheit, 2018-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Paul Quillen</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Omar">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="font/Butler_Black.otf">
+        <link href="font/OpenSans-Regular.ttf">
+        <link rel="shortcut icon" type="image/png" href="img/cover_sm.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <div id="navigator">
+                <ul>
+                    <li><button onclick="scrollDownOne()" id="down-btn"><i class="fas fa-arrow-circle-down"></i></button></li>
+                    <li><button onclick="scrollUpOne()" id="up-btn"><i class="fas fa-arrow-circle-up"></i></button></li>
+                </ul>
+            </div>
+            <div id="banner">
+                <h1 id="title">Paul Quillen</h1>
+                <div id="navbar">
+                    <ul>
+                        <li><button onClick="scrollDown('about')">About</button></li>
+                        <li><button onClick="scrollDown('music')">Music</button></li>
+                        <li><button onClick="scrollDown('media')">Media</button></li>
+                        <li><button onClick="scrollDown('contact')">Contact</button></li>
+                    </ul>
+                </div>
+                <iframe src="https://www.youtube-nocookie.com/embed/ZhIcupQtPpM?showinfo=0&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen  id="banner-video"></iframe>
+                <ul>
+                    <li><a href="https://www.facebook.com/paulquillenmusic/" rel="external" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://open.spotify.com/artist/0kW1VZlelnqOfm4hh4WCWX" rel="external" target="_blank"><i class="fab fa-spotify"></i></a></li>
+                    <li><a href="https://paulquillen.bandcamp.com/" rel="external" target="_blank"><i class="fab fa-bandcamp"></i></a></li>
+                    <li><a href="https://itunes.apple.com/us/artist/paul-quillen/1396861723" rel="external" target="_blank"><i class="fab fa-apple"></i></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCoFEzl264JLr8pvOKKOAKnA" rel="external" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://paulquillenmusic.wordpress.com/" rel="external" target="_blank"><i class="fab fa-wordpress"></i></a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <section id="about">
+                <img src="img/portrait.jpeg" id="portrait" alt="Image of Paul Quillen">
+                <div>
+                    <h2>About</h2>
+                    <p>Paul Quillen is a long-time musician living in Eugene, Oregon.</p>
+                    <blockquote>"Quillen's acoustic ballads are dusky little jewels, or the skyline of a city night: reachable but somehow far away. Quillen put out a debut EP this year, and it's terrific. As are his live performances. Eugene doesn't deserve your songs, Paul, but thanks for sharing them anyways."<span id="eugene-weekly">- Eugene Weekly</span></blockquote>
+                </div>
+            </section>
+            <section id="music">
+                <div>
+                    <h2>Music</h2>
+                    <h3>Listen to Paul's latest self-titled EP</h3>
+                    <div id="bandcamp-loader" class="loader"></div>
+                    <iframe style="border: 0; width: 600px; height: 340px;" src="https://bandcamp.com/EmbeddedPlayer/album=900000138/size=large/bgcol=333333/linkcol=ffffff/artwork=small/transparent=true/" seamless id="bandcamp"><a href="http://paulquillen.bandcamp.com/album/paul-quillen">Paul Quillen by Paul Quillen</a></iframe>
+                </div>
+            </section>
+            <section id="media">
+                <div id="media-left">
+                        <h2>Media</h2>
+                        <div class="media-section">
+                            <h3 class="item"><i class="far fa-newspaper"></i>Articles</h3>
+                            <div>
+                                <p class="item"><a href="https://www.eugeneweekly.com/2018/07/05/after-25-years-an-ep/" rel="external" target="_blank">After 25 Years An EP - Eugene Weekly</a></p>
+                                <p class="item"><a href="https://www.eugeneweekly.com/2018/06/28/paul-quillen-full-session/" rel="external" target="_blank">Full Session - Eugene Weekly</a></p>
+                            </div>
+                        </div>
+                        <div class="media-section">
+                            <h3 class="item"><i class="fas fa-podcast"></i>Podcasts</h3>
+                            <div>
+                                <p class="item"><a href="https://player.fm/series/time-lapse-with-michael-knackstedt/episode-2-paul-quillen" rel="external" target="_blank">Time Lapse with Michael Knackstedt</a></p>
+                            </div>
+                        </div>
+                </div>
+                <img src="img/live.jpg" id="live" alt="Image of Paul Quillen playing guitar">
+            </section>
+            <section id="contact">
+                <div id="form">
+                    <h2>Contact</h2>
+                    <p>For booking and general questions, <a href="mailto:paulquillen@gmail.com" target="_top">email</a> Paul.</p>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&#169 Paul Quillen, 2018</p>
+        </footer>
+    </body>
+    <script src="js/scrolling.js"></script>
+    <script src="js/animations.js"></script>
+</html>
