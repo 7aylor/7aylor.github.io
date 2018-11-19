@@ -1,4 +1,4 @@
-let music = document.getElementById("bandcamp");
+const music = document.getElementById("bandcamp");
 let currSection = 0;
 let sections = [
     "banner",
@@ -8,6 +8,29 @@ let sections = [
     "events",
     "contact"
 ];
+
+const upBtn = document.getElementById("up-btn");
+const downBtn = document.getElementById("down-btn");
+showScrollButtons();
+
+window.onscroll = () => {
+    showScrollButtons();
+}
+
+function showScrollButtons(){
+    if(window.scrollY == 0){
+        upBtn.style.display = 'none';
+        downBtn.style.display = 'block';
+    }
+    else if(window.scrollY + window.innerHeight == document.body.scrollHeight){
+        downBtn.style.display = 'none';
+        upBtn.style.display = 'block';
+    }
+    else{
+        upBtn.style.display = 'block';
+        downBtn.style.display = 'block';
+    }
+}
 
 function scrollDown(id){
     document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});

@@ -83,6 +83,7 @@ i{
     bottom: 0;
     right: 0;
     position: fixed;
+    z-index: 2;
 }
 #navigator ul{
     margin: 0;
@@ -110,7 +111,10 @@ i{
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    background: url("../img/cover_sm.png") no-repeat center;
+    background: url("../img/cover_sm.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center; 
     background-size: cover;
     display: flex;
     flex-direction: column;
