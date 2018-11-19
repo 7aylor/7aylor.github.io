@@ -22,7 +22,7 @@ function showScrollButtons(){
         upBtn.style.display = 'none';
         downBtn.style.display = 'block';
     }
-    else if(window.scrollY + window.innerHeight == document.body.scrollHeight){
+    else if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 1){
         downBtn.style.display = 'none';
         upBtn.style.display = 'block';
     }
