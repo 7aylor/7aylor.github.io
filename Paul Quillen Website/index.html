@@ -4,7 +4,7 @@
     <head>
         <title>Paul Quillen</title>
         <meta charset="utf-8">
-        <meta name="author" content="Omar">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="font/Butler_Black.otf">
         <link href="font/OpenSans-Regular.ttf">
@@ -15,14 +15,14 @@
         <header>
             <div id="navigator">
                 <ul>
-                    <li><button onclick="scrollDownOne()" id="down-btn"><i class="fas fa-arrow-circle-down"></i></button></li>
-                    <li><button onclick="scrollUpOne()" id="up-btn"><i class="fas fa-arrow-circle-up"></i></button></li>
+                    <li><a onclick="scrollDownOne()" id="down-btn"><i class="fas fa-arrow-circle-down"></i></a></li>
+                    <li><a onclick="scrollUpOne()" id="up-btn"><i class="fas fa-arrow-circle-up"></i></a></li>
                 </ul>
             </div>
             <div id="banner">
                 <h1 id="title">Paul Quillen</h1>
                 <div id="navbar">
-                    <ul>
+                    <ul id="navbar">
                         <li><button onClick="scrollDown('about')">About</button></li>
                         <li><button onClick="scrollDown('music')">Music</button></li>
                         <li><button onClick="scrollDown('media')">Media</button></li>
@@ -31,7 +31,7 @@
                     </ul>
                 </div>
                 <iframe src="https://www.youtube-nocookie.com/embed/0-9nZAE6CS4?showinfo=0&rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen  id="banner-video"></iframe>
-                <ul>
+                <ul id="links">
                     <li><a href="https://www.facebook.com/paulquillenmusic/" rel="external" target="_blank"><i class="fab fa-facebook"></i></a></li>
                     <li><a href="https://open.spotify.com/artist/0kW1VZlelnqOfm4hh4WCWX" rel="external" target="_blank"><i class="fab fa-spotify"></i></a></li>
                     <li><a href="https://paulquillen.bandcamp.com/" rel="external" target="_blank"><i class="fab fa-bandcamp"></i></a></li>
@@ -55,7 +55,7 @@
                     <h2>Music</h2>
                     <h3>Listen to Paul's latest self-titled EP</h3>
                     <div id="bandcamp-loader" class="loader"></div>
-                    <iframe style="border: 0; width: 600px; height: 340px;" src="https://bandcamp.com/EmbeddedPlayer/album=900000138/size=large/bgcol=333333/linkcol=ffffff/artwork=small/transparent=true/" seamless id="bandcamp"><a href="http://paulquillen.bandcamp.com/album/paul-quillen">Paul Quillen by Paul Quillen</a></iframe>
+                    <iframe style="border: 0; width: 100%; max-width: 700px; height: 50vh; max-height: 340px;" src="https://bandcamp.com/EmbeddedPlayer/album=900000138/size=large/bgcol=333333/linkcol=ffffff/artwork=small/transparent=true/" seamless id="bandcamp"><a href="http://paulquillen.bandcamp.com/album/paul-quillen">Paul Quillen by Paul Quillen</a></iframe>
                 </div>
             </section>
             <section id="media">
@@ -115,7 +115,7 @@
             <section id="contact">
                 <div id="form">
                     <h2>Contact</h2>
-                    <p>For booking and general questions, <a href="mailto:paulquillen@gmail.com" target="_top">email</a> Paul.</p>
+                    <p>For booking and general questions, <a href="mailto:paulquillen@gmail.com" target="_blank">email</a> Paul.</p>
                 </div>
             </section>
         </main>

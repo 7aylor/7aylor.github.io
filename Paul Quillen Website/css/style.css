@@ -1,13 +1,3 @@
-@font-face {
-    font-family: butler;
-    src: url(../font/Butler_Black.otf);
-}
-
-@font-face {
-    font-family: 'open-sans';
-    src: url(../font/OpenSans-Regular.ttf);
-}
-
 /*color palette:
 
 #727432 - Spanish Bistere (green)
@@ -24,6 +14,16 @@
 
 */
 
+@font-face {
+    font-family: butler;
+    src: url(../font/Butler_Black.otf);
+}
+
+@font-face {
+    font-family: 'open-sans';
+    src: url(../font/OpenSans-Regular.ttf);
+}
+
 :root {
     --font-heading: 'butler', 'Cinzel', serif;; 
     --font-normal: 'open-sans', sans-serif;
@@ -36,63 +36,33 @@ body{
     color: #0B0602;
     text-align: center;
     font-family: var(--font-normal);
-    background-color: #0B0602;
 }
-
 h1{
     font-family: var(--font-heading);
     text-align: center;
     margin: 0;
     padding: 0;
 }
-
 h2{
     margin: 0;
     padding: 0;
 }
-
 button{
     background: inherit;
     border: inherit;
     font-family: inherit;
     color: inherit;
-    font-size: inherit;
+    font-size: 2rem;
 }
-
-button:hover{
-    cursor: pointer;
-    color: #FFFAE6;
-}
-
 button:focus {
     outline:0;
 }
-
-#navigator{
-    margin: 0;
-    padding: 3px;
-    bottom: 0;
-    right: 0;
-    position: fixed;
-}
-
-#navigator ul{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-}
-
-#navigator button{
-    height: 32px;
-    width: 32px;
+a i{
     color: #FFFAE6;
 }
-
-#navigator button:hover{
-    color: #4D3C10;
-}   
-
+i{
+    font-size: 2rem;
+}
 .loader {
     border: 5px solid #FFFAE6; /* Light grey */
     border-top: 5px solid #2E2409; /* Blue */
@@ -103,42 +73,38 @@ button:focus {
     height: 20px;
     animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-#title{
+#navigator{
     margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family: var(--font-heading);
-    font-size: 5em;
-    color: #050709;
-} 
-
-#navbar{
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    color: #050709;
+    padding: 3px;
+    bottom: 0;
+    right: 0;
+    position: fixed;
 }
-
-#navbar ul{
-    margin: 0 auto;
+#navigator ul{
+    margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    font-family: var(--font-normal);
-}
-
-#navbar li{
     list-style: none;
-    margin: 0 20px 0 20px;
-    font-size: 1.5em;
 }
-
+#navigator a{
+    margin: 0.25em;
+    display: inline-block;
+    height: 6vh;
+    width: 6vh;
+    color: #FFFAE6;
+}
+#navigator a:hover{
+    color: inherit;
+}
+#navigator i{
+    margin: 0 auto;
+    display: block;
+    font-size: 6vh;
+}
 #banner{
     padding: 0;
     margin: 0 auto;
@@ -146,13 +112,11 @@ button:focus {
     height: 100vh;
     background: url("../img/cover_sm.png") no-repeat center;
     background-size: cover;
-    /*box-shadow: 5px 0px 15px black;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 #banner-video{
     padding: 0;
     margin: 0 auto;
@@ -164,85 +128,60 @@ button:focus {
     vertical-align: middle;
     box-shadow: 5px 5px 15px black;
 }
-
-#banner ul{
+#links, #navbar ul{
     display: flex;
-    margin: 30px auto;
+    flex-wrap: wrap;
+    margin: 1em auto;
     padding: 0;
     width: 88vh;
     max-width: 80vw;
     background-color: rgb(0,0,0,0.15);
-    justify-content: center;
+    justify-content: space-evenly;
+    font-family: var(--font-normal);
 }
-
-#banner li{
+#links li, #navbar li{
     list-style: none;
-    margin: 5px 20px 5px 20px;
+    /*margin: 5px 20px 5px 20px;*/
+    margin: 0.25em 0 0.25em 0;
+    font-size: 1.5em;
     padding: 0;
 }
-
-a i{
-    color: #FFFAE6;
+#title{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 5em;
+    color: #050709;
 }
-
-a i:hover{
-    color: var(--link-hover-color);
-}
-
-i{
-    font-size: 24px;
-}
-
 main{
     width: 100%;
     margin: 0 auto;
     padding: 0;
     background-image: linear-gradient(to right, #F2DEC5, #B39571);
 }
-
 section{
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: grid;
-    grid-template-columns: 40% 40%;
     text-align: left;
-    align-items: center;
-    justify-content: center;
 }
-
-section h2{
-    margin: 10px;
-    padding: 0;
-    font-size: 32px;
-}
-
 #portrait{
-    max-height: 60vh;
-    max-width: 60vw;
-    margin: 20px;
     border-radius: 5px;
     box-shadow: 3px 3px 5px #B39571;
-    justify-self: flex-end;
 }
-
-#about p{
-    margin: 10px;
-}
-
 blockquote{
     font-style: italic;
-    padding: 20px;
 }
-
 #eugene-weekly{
     display: block;
     margin-top: 20px;
     font-style: normal;
 }
-
 #music{
-    grid-template-columns: 80%;
+    width: 100%;
+    grid-template-columns: 100%;
+    grid-template-rows: 80%;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -253,75 +192,53 @@ blockquote{
     padding: 0;
     color: white;
 }
-
-#live{
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px #B39571;
-    margin-right: auto;
+#music #bandcamp{
     margin-left: auto;
+    margin-right: auto;
 }
-
 #media{
     justify-content: center;
 }
-
 #media-left{
     background-color: #FFFAE6;
-    min-height: 70vh;
-    max-height: 90vh;
     border-radius: 5px;
     box-shadow: 3px 1px 5px #B39571;
 }
-
 #media i{
     margin-right: 10px;
 }
-
 #media h2{
     margin: 0;
-    margin-bottom: 20px;
     padding: 0;
-    padding-top: 20px;
     text-align: center;
 }
-
 #media a{
     color: #0B0602;
 }
-
-#media a:hover{
-    color: #727432;
-}
-
 .media-section{
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 1em;
     padding: 0;
-    display: grid;
-    grid-template-columns: 40% 40%;
-    justify-content: center;
 }
-
 .media-section .item{
     margin: 0;
     padding: 0;
     width: 100%;
     text-align: center;
-    min-height: 10vh;
 }
-
 .media-section ul{
     margin: 0;
     padding: 0;
     list-style: none;   
 }
-
 .media-section li{
-    margin-bottom: 10px;
-    padding: 0;
-    list-style: none;   
+    margin-bottom: 0.5em;
+    padding: 0;  
 }
-
+#live{
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px #B39571;
+}
 #events{
     display: block;
     text-align: center;
@@ -329,11 +246,9 @@ blockquote{
     background-size: cover;
     color: white;
 }
-
 #events h2{
     padding-top: 20px;
 }
-
 #events table{
     margin-left: auto;
     margin-right: auto;
@@ -342,17 +257,14 @@ blockquote{
     border: none;
     font-size: 1.2em;
 }
-
 #events tr:nth-child(odd){
     background-color: rgb(255,255,255,0.5);
     color: black;
 }
-
 #events tr:nth-child(even){
     background-color: rgb(0,0,0,0.5);
     color: white;
 }
-
 #contact{
     display: block;
     text-align: left;
@@ -361,29 +273,136 @@ blockquote{
     width: 100%;
     margin: 0;
     padding: 0;
-    color: white;
 }
-
-#form{
-    width: 50%;
-    margin: 0;
-    padding: 50px;
-    text-align: center;
-}
-
 #contact a{
     color: white;
 }
-
+#form{
+    position: relative;
+    top: 90%;
+    transform: translateY(-90%);
+    background-color: rgb(0,0,0,0.5);
+    border-radius: 5px;
+    padding: 1em;
+    color: white;
+}
 footer p{
     margin: 0 auto;
+    padding: 0;
     margin-top: -35px;
     text-align: center;
-    width: 400px;
-    padding: 10px;
-    /*border-top: 1px solid white;*/
+    width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
     color: white;
 }
 
+@media only screen and (max-width: 900px){
+    #title{
+        color: #FFFAE6;
+        font-size: 3em;
+    }
+    #navbar{
+        color: #FFFAE6;
+    }
+    section{
+        display: grid;
+        grid-template-rows: 48% 48%;
+        justify-content: center;
+        align-content: center;
+    }
+    #about h2{
+        margin-bottom: 0.1em;
+        text-align: center;
+    }
+    #about{
+        text-align: justify;
+    }
+    #about p, blockquote{
+        font-size: 0.8em;
+    }
+    #portrait{
+        margin: 0 auto;
+        padding: 0 auto;
+        height: 45vh;
+        width: auto;
+    }
+    #media{
+        display: grid;
+        grid-template-rows: auto auto;
+        justify-content: center;
+    }
+    #media-left{
+        margin: 0 auto;
+        height: auto;
+        width: 90vw;
+    }
+    .media-section ul{
+        margin-top: 0.5em;
+        font-size: 0.8em;
+        text-align: center;
+    }
+    #live{
+        margin: 1em auto;
+        height: 30vh;
+        width: auto;
+    }
+}
+
+@media only screen and (min-width: 900px){
+    a i:hover{
+        color: var(--link-hover-color);
+    }
+    button:hover{
+        cursor: pointer;
+        color: #FFFAE6;
+    }
+    section{
+        display: grid;
+        grid-template-columns: 40% 40%;
+        align-items: center;
+        justify-content: center;
+    }
+    section h2{
+        margin: 10px;
+        padding: 0;
+        font-size: 32px;
+    }
+    #portrait{
+        height: auto;
+        width: auto;
+        max-height: 60vh;
+        max-width: 60vw;
+        margin: 20px;
+        justify-self: flex-end;
+    }
+    #about p{
+        margin: 10px;
+    }
+    blockquote{
+        padding: 20px;
+    }
+    #live{
+        margin-right: auto;
+        margin-left: auto;
+        margin-left: 10px;
+        height: 50vh;
+        width: auto;
+    }
+    #media h2{
+        margin-bottom: 1em;
+        padding-top: 1em;
+    }
+    .media-section{
+        display: grid;
+        grid-template-columns: 40% 40%;
+        justify-content: center;
+    }
+    #media-left{
+        min-height: 70vh;
+        max-height: 90vh;
+    }
+    #media a:hover{
+        color: #727432;
+    }
+}
