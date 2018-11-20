@@ -11,7 +11,12 @@ let sections = [
 
 const upBtn = document.getElementById("up-btn");
 const downBtn = document.getElementById("down-btn");
+
 showScrollButtons();
+
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
 
 window.onscroll = () => {
     showScrollButtons();
@@ -19,7 +24,6 @@ window.onscroll = () => {
 
 function showScrollButtons(){
     if(window.scrollY == 0){
-        
         upBtn.style.display = 'none';
         downBtn.style.display = 'block';
     }
@@ -34,7 +38,6 @@ function showScrollButtons(){
 }
 
 function scrollDown(id){
-    document.getElementsByTagName("body").requestFullscreen();
     document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
     updateCurrSection(id);
 }

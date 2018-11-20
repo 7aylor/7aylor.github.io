@@ -228,7 +228,7 @@ blockquote{
     grid-template-rows: auto;
     grid-template-columns: 100%;
     text-align: center;
-    background: url("../img/playing1.jpg") no-repeat fixed top;
+    background: url("../img/playing_sm.jpg") no-repeat fixed top;
     background-size: cover;
     color: white;
     align-items: flex-end;
