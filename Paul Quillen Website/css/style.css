@@ -9,7 +9,7 @@
 }
 
 :root {
-    --font-heading: 'butler', 'Cinzel', serif;; 
+    --font-heading: 'butler', 'Cinzel', serif; 
     --font-normal: 'open-sans', sans-serif;
     --link-hover-color: #0B0602;
 }
@@ -48,8 +48,8 @@ i{
     font-size: 2rem;
 }
 .loader {
-    border: 5px solid #FFFAE6; /* Light grey */
-    border-top: 5px solid #2E2409; /* Blue */
+    border: 5px solid #FFFAE6;
+    border-top: 5px solid #2E2409;
     border-radius: 50%;
     margin-right: auto;
     margin-left: auto;
