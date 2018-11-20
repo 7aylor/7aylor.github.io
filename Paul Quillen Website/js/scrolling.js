@@ -27,32 +27,33 @@ function showScrollButtons(){
     if(window.scrollY == 0){
         upBtn.style.display = 'none';
         downBtn.style.display = 'block';
+        toggleFullScreen(false);
     }
     else if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 1){
         downBtn.style.display = 'none';
         upBtn.style.display = 'block';
-        fullScreen(body);
+        toggleFullScreen(true);
     }
     else{
         upBtn.style.display = 'block';
         downBtn.style.display = 'block';
-        fullScreen(body);
+        toggleFullScreen(true);
     }
 }
 
-function fullScreen(element) {
-    if(!Document.fullScreen){
-        console.log("Going full screen");
-        if(element.requestFullScreen) {
-          element.requestFullScreen();
-        } else if(element.webkitRequestFullScreen ) {
-          element.webkitRequestFullScreen();
-        } else if(element.mozRequestFullScreen) {
-          element.mozRequestFullScreen();
-        }
-        Document.fullScreen = true;
+function toggleFullScreen(goFullScreen) {
+    var doc = window.document;
+    var docEl = doc.documentElement;
+  
+    if(goFullScreen) {
+        var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+        requestFullScreen.call(docEl);
     }
-  }
+    else {
+        var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+        cancelFullScreen.call(doc);
+    }
+}
 
 function scrollDown(id){
     document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
