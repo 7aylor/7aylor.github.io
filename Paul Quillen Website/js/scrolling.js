@@ -11,12 +11,13 @@ let sections = [
 
 const upBtn = document.getElementById("up-btn");
 const downBtn = document.getElementById("down-btn");
+const body = document.getElementsByTagName("body");
 
 showScrollButtons();
 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  }
+}
 
 window.onscroll = () => {
     showScrollButtons();
@@ -30,12 +31,28 @@ function showScrollButtons(){
     else if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 1){
         downBtn.style.display = 'none';
         upBtn.style.display = 'block';
+        fullScreen(body);
     }
     else{
         upBtn.style.display = 'block';
         downBtn.style.display = 'block';
+        fullScreen(body);
     }
 }
+
+function fullScreen(element) {
+    if(!Document.fullScreen){
+        console.log("Going full screen");
+        if(element.requestFullScreen) {
+          element.requestFullScreen();
+        } else if(element.webkitRequestFullScreen ) {
+          element.webkitRequestFullScreen();
+        } else if(element.mozRequestFullScreen) {
+          element.mozRequestFullScreen();
+        }
+        Document.fullScreen = true;
+    }
+  }
 
 function scrollDown(id){
     document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
