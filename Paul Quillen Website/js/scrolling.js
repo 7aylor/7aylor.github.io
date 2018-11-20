@@ -19,6 +19,7 @@ window.onscroll = () => {
 
 function showScrollButtons(){
     if(window.scrollY == 0){
+        
         upBtn.style.display = 'none';
         downBtn.style.display = 'block';
     }
@@ -33,6 +34,7 @@ function showScrollButtons(){
 }
 
 function scrollDown(id){
+    window.scrollTo( 0, 1 );
     document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
     updateCurrSection(id);
 }
