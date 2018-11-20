@@ -34,7 +34,7 @@ function showScrollButtons(){
 }
 
 function scrollDown(id){
-    window.scrollTo( 0, 1 );
+    document.getElementsByTagName("body").requestFullscreen();
     document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
     updateCurrSection(id);
 }
