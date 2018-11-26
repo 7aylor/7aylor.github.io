@@ -94,7 +94,6 @@ i{
     height: 100vh;
     background: url("../img/cover_sm.jpg");
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center center; 
     background-size: cover;
     display: flex;
@@ -228,7 +227,7 @@ blockquote{
     grid-template-rows: auto;
     grid-template-columns: 100%;
     text-align: center;
-    background: url("../img/playing_sm.jpg") no-repeat fixed top;
+    background: url("../img/playing_sm.jpg") no-repeat top;
     background-size: cover;
     color: white;
     align-items: flex-end;
@@ -264,7 +263,7 @@ blockquote{
 #contact{
     display: block;
     text-align: left;
-    background: url("../img/sunglasses.jpg") no-repeat fixed right;
+    background: url("../img/sunglasses.jpg") no-repeat right;
     background-size: cover;
     width: 100%;
     margin: 0;
@@ -326,7 +325,6 @@ footer p{
     #music{
         background: url("../img/set_sm.jpg");
         background-repeat: no-repeat;
-        background-attachment: scroll;
         background-position: center center; 
         background-size: cover;
     }
@@ -365,13 +363,6 @@ footer p{
         transform: translateY(-90%);
     }
 }
-<<<<<<< HEAD
-
-@media only screen and (min-width: 900px){
-    #banner{
-        background-attachment: scroll;
-    }
-=======
 /*tablets*/
 @media only screen and (min-width: 600px) and (max-width: 1000px){
     #title{
@@ -406,7 +397,6 @@ footer p{
     #music{
         background: url("../img/set_sm.jpg");
         background-repeat: no-repeat;
-        background-attachment: fixed;
         background-position: center center; 
         background-size: cover;
     }
@@ -455,7 +445,9 @@ footer p{
 }
 /*desktops*/
 @media only screen and (min-width: 1000px){
->>>>>>> 9e5074d95d08149b54afd542e631effc55c103b0
+    #banner{
+        background-attachment: fixed;
+    }
     a i:hover{
         color: var(--link-hover-color);
     }
@@ -517,6 +509,12 @@ footer p{
     }
     #media a:hover{
         color: #727432;
+    }
+    #events{
+        background-attachment: fixed;
+    }
+    #contact{
+        background-attachment: fixed;
     }
     #form{
         top: 95%;
