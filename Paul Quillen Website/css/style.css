@@ -329,7 +329,7 @@ footer p{
     #music{
         background: url("../img/set_sm.jpg");
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: scroll;
         background-position: center center; 
         background-size: cover;
     }
@@ -357,6 +357,9 @@ footer p{
 }
 
 @media only screen and (min-width: 900px){
+    #banner{
+        background-attachment: scroll;
+    }
     a i:hover{
         color: var(--link-hover-color);
     }
