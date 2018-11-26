@@ -20,7 +20,7 @@
             <div id="banner">
                 <h1 id="title">Paul Quillen</h1>
                 <div id="navbar">
-                    <ul id="navbar">
+                    <ul>
                         <li><button onClick="scrollDown('about')">About</button></li>
                         <li><button onClick="scrollDown('music')">Music</button></li>
                         <li><button onClick="scrollDown('media')">Media</button></li>
@@ -53,7 +53,7 @@
                     <h2>Music</h2>
                     <h3>Listen to Paul's latest self-titled EP</h3>
                     <div id="bandcamp-loader" class="loader"></div>
-                    <iframe style="border: 0; width: 100%; max-width: 700px; height: 50vh; max-height: 340px;" src="https://bandcamp.com/EmbeddedPlayer/album=900000138/size=large/bgcol=333333/linkcol=ffffff/artwork=small/transparent=true/" seamless id="bandcamp"><a href="http://paulquillen.bandcamp.com/album/paul-quillen">Paul Quillen by Paul Quillen</a></iframe>
+                    <iframe style="border: 0; width: 100%; max-width: 700px; height: 50vh; max-height: 340px;" src="https://bandcamp.com/EmbeddedPlayer/album=900000138/size=large/bgcol=333333/linkcol=ffffff/artwork=small/transparent=true/"  id="bandcamp"><a href="http://paulquillen.bandcamp.com/album/paul-quillen">Paul Quillen by Paul Quillen</a></iframe>
                 </div>
             </section>
             <section id="media">
@@ -84,31 +84,46 @@
                 <img src="img/live.jpg" id="live" alt="Image of Paul Quillen playing guitar">
             </section>
             <section id="events">
-                <h2>Upcoming Events</h2>
-                <table>
-                    <!--To add more events, just copy and paste from <tr> to </tr>
-                    and change out Date, Location, and About with event details-->
-                    <tr>
-                        <th>Date</th>
-                        <th>Location</th>
-                        <th>About</th>
-                    </tr>
-                    <tr>
-                        <td>11/29/18</td>
-                        <td>Sam Bond's</td>
-                        <td>CD Release Party</td>
-                    </tr>
-                    <tr>
-                        <td>12/18/18</td>
-                        <td>Sample Venue</td>
-                        <td>Best Show Ever</td>
-                    </tr>
-                    <tr>
-                        <td>1/1/19</td>
-                        <td>Time Square</td>
-                        <td>New Year's Party</td>
-                    </tr>    
-                </table>
+                <div id="events-container">
+                    <table>
+                        <!--To add more events, just copy and paste from <tr> to </tr>
+                        and change out Date, Location, and About with event details.
+                        Recommend limiting to 5 events total-->
+                        <caption>
+                            <h2>Upcoming Events</h2>
+                        </caption>
+                        <tr>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>About</th>
+                        </tr>
+                        <tr>
+                            <td>11/29/18</td>
+                            <td>Sam Bond's</td>
+                            <td>CD Release Party</td>
+                        </tr>
+                        <tr>
+                            <td>12/18/18</td>
+                            <td>Sample Venue</td>
+                            <td>Best Show Ever</td>
+                        </tr>
+                        <tr>
+                            <td>1/1/19</td>
+                            <td>Time Square</td>
+                            <td>New Year's Party</td>
+                        </tr>
+                        <tr>
+                            <td>1/1/19</td>
+                            <td>Time Square</td>
+                            <td>New Year's Party</td>
+                        </tr>
+                        <tr>
+                            <td>1/1/19</td>
+                            <td>Time Square</td>
+                            <td>New Year's Party</td>
+                        </tr>
+                    </table>
+                </div>
             </section>
             <section id="contact">
                 <div id="form">
@@ -118,9 +133,9 @@
             </section>
         </main>
         <footer>
-            <p>&#169 Paul Quillen, 2018</p>
+            <p>&#169; Paul Quillen, 2018</p>
         </footer>
+        <script src="js/scrolling.js"></script>
+        <script src="js/animations.js"></script>
     </body>
-    <script src="js/scrolling.js"></script>
-    <script src="js/animations.js"></script>
 </html>

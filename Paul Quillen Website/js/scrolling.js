@@ -11,29 +11,60 @@ let sections = [
 
 const upBtn = document.getElementById("up-btn");
 const downBtn = document.getElementById("down-btn");
+const body = document.getElementsByTagName("body");
+
 showScrollButtons();
 
-window.onscroll = () => {
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
+window.onscroll = function() {
     showScrollButtons();
-}
+};
 
 function showScrollButtons(){
     if(window.scrollY == 0){
-        upBtn.style.display = 'none';
-        downBtn.style.display = 'block';
+        upBtn.style.display = "none";
+        downBtn.style.display = "block";
+        toggleFullScreen(false);
     }
     else if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 1){
-        downBtn.style.display = 'none';
-        upBtn.style.display = 'block';
+        downBtn.style.display = "none";
+        upBtn.style.display = "block";
+        toggleFullScreen(true);
     }
     else{
-        upBtn.style.display = 'block';
-        downBtn.style.display = 'block';
+        upBtn.style.display = "block";
+        downBtn.style.display = "block";
+        toggleFullScreen(true);
+    }
+}
+
+function toggleFullScreen(goFullScreen) {
+    let doc = window.document;
+    let docEl = doc.documentElement;
+
+    if(goFullScreen) {
+        let requestFullScreen = docEl.requestFullscreen ||
+                                docEl.mozRequestFullScreen ||
+                                docEl.webkitRequestFullScreen ||
+                                docEl.msRequestFullscreen;
+
+        requestFullScreen.call(docEl);
+    }
+    else {
+        let cancelFullScreen = doc.exitFullscreen ||
+                               doc.mozCancelFullScreen ||
+                               doc.webkitExitFullscreen ||
+                               doc.msExitFullscreen;
+
+        cancelFullScreen.call(doc);
     }
 }
 
 function scrollDown(id){
-    document.getElementById(id.toString()).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+    document.getElementById(id.toString()).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
     updateCurrSection(id);
 }
 
@@ -41,14 +72,14 @@ function scrollDownOne(){
     if(currSection < sections.length - 1){
         currSection++;
     }
-    document.getElementById(sections[currSection]).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+    document.getElementById(sections[currSection]).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 
 function scrollUpOne(){
     if(currSection > 0){
         getClosestSection(true);   
     }
-    document.getElementById(sections[currSection]).scrollIntoView({behavior: 'smooth', block: "start", inline: "nearest"});
+    document.getElementById(sections[currSection]).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 }
 
 function updateCurrSection(id){
