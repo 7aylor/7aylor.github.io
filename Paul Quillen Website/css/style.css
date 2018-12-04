@@ -233,16 +233,17 @@ blockquote{
 }
 #media{
     justify-items: center;
+    align-items: center;
 }
-#media-left{
+.media-container{
     background-color: #FFFAE6;
     border-radius: 5px;
     box-shadow: 3px 1px 5px #B39571;
 }
 #media i{
-    margin-right: 10px;
+    margin-right: 0.5em;
 }
-#media h2{
+.media-container h2{
     margin: 0;
     padding: 0;
     text-align: center;
@@ -274,6 +275,7 @@ blockquote{
     border-radius: 5px;
     box-shadow: 3px 3px 5px #B39571;
 }
+/*
 #events{
     grid-template-rows: auto;
     grid-template-columns: 100%;
@@ -288,27 +290,37 @@ blockquote{
 }
 #events h2{
     padding-top: 1em;
-}
-#events table{
+}*/
+#events-container table{
     margin-left: auto;
     margin-right: auto;
     border: none;
     width: 90%;
     font-size: 1.2em;
 }
+#events-container{
+    text-align: center;
+}
+/*
 #events caption{
     background-color: rgba(0,0,0,0.75);
-}
+}*/
 #events h2{
     margin: 0;
     padding: 0;
 }
-#events tr:nth-child(even){
+/*
+#events-container tr:nth-child(even){
     background-color: rgba(255,255,255,0.75);
     color: black;
 }
-#events tr:nth-child(odd){
-    background-color: rgba(0,0,0,0.75);
+*/
+#events-container th{
+    background-color: #0B0602;
+    color: white;
+}
+#events-container tr:nth-child(odd):not(:first-child){
+    background-color: rgba(0,0,0,0.5);
     color: white;
 }
 #contact{
@@ -374,7 +386,7 @@ footer p{
         width: auto;
     }
     #music{
-        background: url("../img/set_sm.jpg");
+        background: url("../img/stage1.jpg");
         background-repeat: no-repeat;
         background-position: center center; 
         background-size: cover;
@@ -532,7 +544,7 @@ footer p{
         font-size: 1.5em;
     }
     #music{
-        background: url("../img/set.jpg");
+        background: url("../img/stage1.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center; 
@@ -549,7 +561,7 @@ footer p{
         grid-template-columns: 48% 48%;
         -ms-grid-columns: 48% 48%;
     }
-    #media h2{
+    .media-container h2{
         margin-bottom: 1em;
     }
     .media-section{
@@ -557,15 +569,23 @@ footer p{
         grid-template-columns: 50% 50%;
         justify-content: space-between;
     }
-    #media-left{
+    .media-container{
+        height: 70vh;
+        width: 40vw;
+        align-items: center;
+    }
+    .media-container{
         padding: 2em;
     }
     #media a:hover{
         color: #727432;
     }
-    #events{
-        background-attachment: fixed;
+    #events-container th, td{
+        padding: 0.5em;
     }
+    /*#events{
+        background-attachment: fixed;
+    }*/
     #contact{
         background-attachment: fixed;
     }

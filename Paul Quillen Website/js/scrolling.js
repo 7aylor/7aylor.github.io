@@ -8,7 +8,7 @@ let sections = [
     "about",
     "music",
     "media",
-    "events",
+    //"events",
     "contact"
 ];
 
