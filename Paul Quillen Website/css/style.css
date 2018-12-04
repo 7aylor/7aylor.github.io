@@ -1,3 +1,47 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 @font-face {
     font-family: butler;
     src: url(../font/Butler_Black.otf);
@@ -32,8 +76,8 @@ h2{
     padding: 0;
 }
 button{
-    background: inherit;
-    border: inherit;
+    background: none;
+    border: none;
     font-family: inherit;
     color: inherit;
     font-size: 2rem;
@@ -96,6 +140,9 @@ i{
     background-repeat: no-repeat;
     background-position: center center; 
     background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,13 +160,16 @@ i{
     box-shadow: 5px 5px 15px black;
 }
 #links, #navbar ul{
+    -ms-display: flex;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 1em auto;
     padding: 0;
     width: 88vh;
     max-width: 80vw;
-    background-color: rgb(0,0,0,0.15);
+    height: auto;
+    background-color: rgba(0,0,0,0.15);
     justify-content: space-evenly;
     font-family: var(--font-normal);
 }
@@ -128,7 +178,6 @@ i{
     /*margin: 5px 20px 5px 20px;*/
     margin: 0.25em 0 0.25em 0;
     font-size: 1.5em;
-    padding: 0;
 }
 #title{
     margin: 0;
@@ -139,9 +188,11 @@ i{
     color: #050709;
 }
 main{
+    display: block;
     width: 100%;
     margin: 0 auto;
     padding: 0;
+    background-color: #B39571;
     background-image: linear-gradient(to right, #F2DEC5, #B39571);
 }
 section{
@@ -246,18 +297,18 @@ blockquote{
     font-size: 1.2em;
 }
 #events caption{
-    background-color: rgb(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.75);
 }
 #events h2{
     margin: 0;
     padding: 0;
 }
 #events tr:nth-child(even){
-    background-color: rgb(255,255,255,0.75);
+    background-color: rgba(255,255,255,0.75);
     color: black;
 }
 #events tr:nth-child(odd){
-    background-color: rgb(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.75);
     color: white;
 }
 #contact{
@@ -274,7 +325,7 @@ blockquote{
 }
 #form{
     position: relative;
-    background-color: rgb(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.75);
     padding: 1em;
     color: white;
 }
@@ -364,7 +415,7 @@ footer p{
     }
 }
 /*tablets*/
-@media only screen and (min-width: 600px) and (max-width: 1000px){
+@media only screen and (min-width: 600px) and (max-width: 1200px){
     #title{
         color: #FFFAE6;
         font-size: 3em;
@@ -444,12 +495,13 @@ footer p{
     }
 }
 /*desktops*/
-@media only screen and (min-width: 1000px){
+@media only screen and (min-width: 1200px){
     #banner{
         background-attachment: fixed;
     }
     a i:hover{
         color: var(--link-hover-color);
+        cursor: pointer;
     }
     button:hover{
         cursor: pointer;
@@ -495,6 +547,7 @@ footer p{
     }
     #media{
         grid-template-columns: 48% 48%;
+        -ms-grid-columns: 48% 48%;
     }
     #media h2{
         margin-bottom: 1em;
@@ -519,5 +572,40 @@ footer p{
     #form{
         top: 95%;
         transform: translateY(-95%);
+    }
+}
+/*ie*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    #banner, #music, #events, #contact{
+        background-attachment: scroll;
+    }
+    #links li, #navbar li{
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+    #links, #navbar ul{
+        justify-content: space-between;
+    }
+    section{
+        display: -ms-grid;
+        -ms-grid-columns: 45% 45%;
+        -ms-grid-rows: 1fr;
+        justify-content: center;
+    }
+    #form{
+        top: 85%;
+    }
+    
+}
+/*edge*/
+@supports (-ms-ime-align: auto){
+    #banner, #music, #events, #contact{
+        background-attachment: scroll;
+    }
+    #links, #navbar ul{
+        justify-content: space-around;
+    }
+    #form{
+        top: 85%;
     }
 }

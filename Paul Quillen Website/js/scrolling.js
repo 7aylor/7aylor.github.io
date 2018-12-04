@@ -1,3 +1,6 @@
+const upBtn = document.getElementById("up-btn");
+const downBtn = document.getElementById("down-btn");
+const body = document.getElementsByTagName("body");
 const music = document.getElementById("bandcamp");
 let currSection = 0;
 let sections = [
@@ -9,18 +12,34 @@ let sections = [
     "contact"
 ];
 
-const upBtn = document.getElementById("up-btn");
-const downBtn = document.getElementById("down-btn");
-const body = document.getElementsByTagName("body");
+// Chrome 1+
+const isChrome = !!window.chrome && !!window.chrome.webstore;
+
+// Firefox 1.0+
+const isFirefox = typeof InstallTrigger !== 'undefined';
+
+let enableScrolling = false;
+
+window.onload = function() {
+    
+}
 
 showScrollButtons();
 
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
+window.onload = function () {
+    if(isChrome || isFirefox){
+        enableScrolling = true;
+        upBtn.parentNode.style.display = 'block';
+        downBtn.parentNode.style.display = 'block';
+        window.scrollTo(0, 0);
+        console.log(upBtn);
+    }
 };
 
 window.onscroll = function() {
-    showScrollButtons();
+    if(enableScrolling){
+        showScrollButtons();
+    }
 };
 
 function showScrollButtons(){
