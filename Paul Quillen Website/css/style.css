@@ -208,6 +208,7 @@ section{
     box-shadow: 3px 3px 5px #B39571;
 }
 blockquote{
+    margin: 2em;
     font-style: italic;
 }
 #eugene-weekly{
@@ -217,6 +218,11 @@ blockquote{
 }
 #music{
     width: 100%;
+    background: url("../img/stage1.jpg");
+    background-repeat: no-repeat;
+    background-position: left; 
+    background-size: cover;
+    background-attachment: fixed;
     grid-template-columns: 100%;
     grid-template-rows: 80%;
     justify-content: center;
@@ -265,11 +271,14 @@ blockquote{
 .media-section ul{
     margin: 0;
     padding: 0;
-    list-style: none;   
+    list-style: none;
+    align-self: end;
 }
 .media-section li{
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
-    padding: 0;  
+    padding: 0;
+    align-content: end;
 }
 #live{
     border-radius: 5px;
@@ -328,6 +337,7 @@ blockquote{
     text-align: left;
     background: url("../img/sunglasses.jpg") no-repeat right;
     background-size: cover;
+    background-attachment: fixed;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -352,7 +362,7 @@ footer p{
     color: white;
 }
 /*phones*/
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
     #title{
         color: #FFFAE6;
         font-size: 3em;
@@ -385,15 +395,32 @@ footer p{
         height: 45vh;
         width: auto;
     }
-    #music{
-        background: url("../img/stage1.jpg");
-        background-repeat: no-repeat;
-        background-position: center center; 
-        background-size: cover;
-    }
     #media{
         display: grid;
         grid-template-rows: auto auto;
+    }
+    .media-container{
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
+        height: auto;
+        min-height: 35vh;
+        width: 90vw;
+        align-items: center;
+    }
+    .media-container h2{
+        font-size: 1.5em;
+    }
+    .media-container i{
+        font-size: 1em;
+    }
+    #events-container table{
+        font-size: 1em;
+    }
+    /*
+    .media-container{
+
     }
     #media-left{
         margin: 0 auto;
@@ -402,6 +429,7 @@ footer p{
         height: auto;
         width: 90vw;
     }
+    */
     .media-section ul{
         margin-top: 0.5em;
         font-size: 0.8em;
@@ -427,7 +455,7 @@ footer p{
     }
 }
 /*tablets*/
-@media only screen and (min-width: 600px) and (max-width: 1200px){
+@media only screen and (min-width: 600px) and (max-width: 1200px) {
     #title{
         color: #FFFAE6;
         font-size: 3em;
@@ -457,26 +485,19 @@ footer p{
         height: 45vh;
         width: auto;
     }
-    #music{
-        background: url("../img/set_sm.jpg");
-        background-repeat: no-repeat;
-        background-position: center center; 
-        background-size: cover;
-    }
     #media{
         display: grid;
         grid-template-rows: 50% 50%;
         align-items: center;
     }
-    #media-left{
-        margin: 0 auto;
-        padding-top: 1.5em;
-        padding-bottom: 1.5em;
-        height: auto;
-        width: 80vw;
-        
+    .media-container{
+        margin-top: 0.25em;
+        margin-bottom: 0.25em;
+        height: 45vh;
+        width: 90vw;
+        align-items: center;
     }
-    #media-left h2{
+    .media-container h2{
         font-size: 2em;
     }
     .media-section h3{
@@ -542,13 +563,6 @@ footer p{
     }
     #about p, blockquote{
         font-size: 1.5em;
-    }
-    #music{
-        background: url("../img/stage1.jpg");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center center; 
-        background-size: cover;
     }
     #live{
         margin: 0 auto;
@@ -629,3 +643,10 @@ footer p{
         top: 85%;
     }
 }
+/*iOS*/
+@supports (-webkit-overflow-scrolling: touch) {
+    #music, #contact{
+        background-attachment: scroll;
+    }
+}
+  
