@@ -239,7 +239,9 @@ blockquote{
 }
 #media{
     justify-items: center;
+    justify-content: center;
     align-items: center;
+    align-content: space-evenly;
 }
 .media-container{
     padding-top: 0.25em;
@@ -537,7 +539,7 @@ footer p{
         background-attachment: fixed;
     }
     a i:hover{
-        color: var(--link-hover-color);
+        color: #bc3636;
         cursor: pointer;
     }
     button:hover{
@@ -577,7 +579,6 @@ footer p{
     }
     #media{
         grid-template-columns: 48% 48%;
-        -ms-grid-columns: 48% 48%;
     }
     .media-container h2{
         margin-bottom: 1em;
@@ -623,7 +624,7 @@ footer p{
     }
     section{
         display: -ms-grid;
-        -ms-grid-columns: 45% 45%;
+        -ms-grid-columns: 400px, 400px;
         -ms-grid-rows: 1fr;
         justify-content: center;
     }
