@@ -242,9 +242,12 @@ blockquote{
     align-items: center;
 }
 .media-container{
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
     background-color: #FFFAE6;
     border-radius: 5px;
     box-shadow: 3px 1px 5px #B39571;
+    align-items: center;
 }
 #media i{
     margin-right: 0.5em;
@@ -252,6 +255,8 @@ blockquote{
 .media-container h2{
     margin: 0;
     padding: 0;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
     text-align: center;
 }
 #media a{
@@ -407,7 +412,6 @@ footer p{
         height: auto;
         min-height: 35vh;
         width: 90vw;
-        align-items: center;
     }
     .media-container h2{
         font-size: 1.5em;
@@ -495,7 +499,7 @@ footer p{
         margin-bottom: 0.25em;
         height: 45vh;
         width: 90vw;
-        align-items: center;
+
     }
     .media-container h2{
         font-size: 2em;
@@ -586,9 +590,6 @@ footer p{
     .media-container{
         height: 70vh;
         width: 40vw;
-        align-items: center;
-    }
-    .media-container{
         padding: 2em;
     }
     #media a:hover{
@@ -649,4 +650,28 @@ footer p{
         background-attachment: scroll;
     }
 }
-  
+/*landscape*/
+@media only screen and (orientation: landscape) and (max-width: 800px){
+    #banner{
+        height: 100vw;
+    }
+    section{
+        height: 100vw;
+    }
+    #portrait{
+        height: 45vw;
+    }
+    .media-container{
+        height: 45vw;
+    }
+    .media-section{
+        padding: 0.25em;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        justify-content: space-between;
+    }
+    .media-section li{
+        text-align: left;
+    }
+}
