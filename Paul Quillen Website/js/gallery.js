@@ -1,8 +1,8 @@
 const pics = [
-    "../img/gallery/live.jpg",
-    "../img/gallery/stage.jpg",
-    "../img/gallery/playing.jpg",
-    "../img/gallery/portrait.jpg"
+    "/img/gallery/live.jpg",
+    "/img/gallery/stage.jpg",
+    "/img/gallery/playing.jpg",
+    "/img/gallery/portrait.jpg"
 ]
 
 const exitBtn = document.getElementById("exit");
@@ -13,15 +13,19 @@ const counter = document.getElementById("counter");
 const img = document.getElementById("gallery-img");
 
 let currImg = 0;
+let currY = 0;
 
 function exitGallery(){
+    window.removeEventListener('scroll', noscroll);
     gallery.style.display = 'none';
 }
 
 function openGallery(){
     gallery.style.display = 'block';
     img.src = pics[currImg];
+    currY = window.scrollY;
     updateCounter();
+    window.addEventListener('scroll', noscroll);
 }
 
 function prevPic(){
@@ -50,3 +54,8 @@ function nextPic(){
 function updateCounter(){
     counter.innerHTML = currImg + 1 + " / " + pics.length;
 }
+
+function noscroll() {
+    window.scrollTo(0, currY);
+}
+
