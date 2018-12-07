@@ -83,7 +83,7 @@
                         <div class="media-section">
                             <h3 class="item"><i class="fas fa-images"></i>Photos</h3>
                             <ul>
-                                <li><a href="#" rel="external">Gallery</a></li>
+                                <li><p onclick="openGallery()" id="gallery-link">Gallery</p></li>
                             </ul>
                         </div>
                     </div>
@@ -127,6 +127,15 @@
                     </table>
                 </div>
             </section>
+            <div id="gallery">
+                    <div id="exit" class="gallery-a" onclick="exitGallery()">&times;</div>
+                    <div id="full-img">
+                        <div id="img-container"><img id="gallery-img"><p id="counter"></p></div>
+                        
+                        <div class="gallery-arrow gallery-a" id="left-arrow" onclick="prevPic()">&#10094;</div>
+                        <div class="gallery-arrow gallery-a" id="right-arrow" onclick="nextPic()">&#10095;</div>
+                    </div>
+            </div>
             <!--<section id="events">
                 <div id="events-container">
                     <table>
@@ -181,5 +190,6 @@
         </footer>
         <script src="js/scrolling.js"></script>
         <script src="js/animations.js"></script>
+        <script src="js/gallery.js"></script>
     </body>
 </html>
