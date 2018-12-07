@@ -1,8 +1,8 @@
 const pics = [
-    "/img/gallery/live.jpg",
-    "/img/gallery/stage.jpg",
-    "/img/gallery/playing.jpg",
-    "/img/gallery/portrait.jpg"
+    "/img/gallery_live.jpg",
+    "/img/gallery_stage.jpg",
+    "/img/gallery_playing.jpg",
+    "/img/gallery_portrait.jpg"
 ]
 
 const exitBtn = document.getElementById("exit");
