@@ -32,7 +32,6 @@ window.onload = function () {
         upBtn.parentNode.style.display = 'block';
         downBtn.parentNode.style.display = 'block';
         window.scrollTo(0, 0);
-        console.log(upBtn);
     }
 };
 
