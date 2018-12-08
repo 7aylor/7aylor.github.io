@@ -240,7 +240,20 @@ blockquote{
 #music #bandcamp{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1em;
+}
+#music h3{
+    padding: 1em;
+}
+#music p{
+    font-size: 1em;
+    padding: 1em;
+}
+#music a{
+    color: white;
+}
+#music a:hover{
+    color: white;
+    cursor: pointer;
 }
 #media{
     display: flex;
