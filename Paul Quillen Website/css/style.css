@@ -207,6 +207,10 @@ section{
     border-radius: 5px;
     box-shadow: 3px 3px 5px #B39571;
 }
+#about h2{
+    font-size: 2em;
+    font-weight: bold;
+}
 blockquote{
     margin: 2em;
     font-style: italic;
@@ -239,6 +243,7 @@ blockquote{
     margin-top: 1em;
 }
 #media{
+    display: flex;
     justify-items: center;
     justify-content: center;
     align-items: center;
@@ -262,12 +267,16 @@ blockquote{
     padding-bottom: 0.25em;
     text-align: center;
 }
+#media h3{
+    font-weight: bold;
+}
 #media a{
     color: #0B0602;
 }
 .media-section{
     margin: 0 auto;
-    margin-top: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     padding: 0;
 }
 .media-section .item{
@@ -328,7 +337,6 @@ blockquote{
     top: 50%;
     left: 10%;
     right: 10%;
-    
     justify-self: center;
     align-self: center;
     display: flex;
@@ -371,19 +379,16 @@ blockquote{
 }
 
 #events{
-    grid-template-rows: auto;
-    grid-template-columns: 100%;
+    display: block;
     text-align: center;
     background: url("../img/ocean3.jpg") no-repeat top;
     background-size: cover;
     color: white;
-    align-items: flex-end;
-}
-#events-container{
-    padding-bottom: 2.5em;
 }
 #events h2{
-    padding-top: 1em;
+    margin: 0;
+    padding: 1em;
+    font-size: 3em;
 }
 #events-container table{
     margin-left: auto;
@@ -392,20 +397,12 @@ blockquote{
     width: 90%;
     font-size: 1.2em;
 }
-#events-container{
-    text-align: center;
-}
-#events h2{
-    margin: 0;
-    padding: 0;
-}
-#events-container th{
-    background-color: #0B0602;
-    color: white;
-}
-#events-container tr:nth-child(odd):not(:first-child){
+#events-container tr:nth-child(odd){
     background-color: rgba(0,0,0,0.5);
     color: white;
+}
+.date{
+    font-weight: bold;
 }
 #contact{
     display: block;
@@ -457,6 +454,8 @@ footer p{
     }
     #about{
         text-align: justify;
+        align-items: baseline;
+        align-content: flex-end;
     }
     #about p{
         margin: 0 1em 0 1em;
@@ -529,8 +528,16 @@ footer p{
         grid-template-columns: 100%;
         align-items: flex-end;
     }
+    #events h2{
+        font-size: 2em;
+    }
     #events table{
         width: 98%;
+    }
+    #events td{
+        font-size: 1.1em;
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
     }
     #form{
         top: 90%;
@@ -551,6 +558,10 @@ footer p{
         grid-template-rows: 48% 48%;
         justify-content: center;
         align-content: center;
+        font-size: 1em;
+    }
+    #about{
+        align-items: baseline;
     }
     #about h2{
         margin-bottom: 0.1em;
@@ -568,27 +579,20 @@ footer p{
         height: 45vh;
         width: auto;
     }
-    #media{
-        display: grid;
-        grid-template-rows: 50% 50%;
-        align-items: center;
-    }
     .media-container{
         margin-top: 0.25em;
         margin-bottom: 0.25em;
-        height: 45vh;
         width: 90vw;
-
     }
     .media-container h2{
-        font-size: 2em;
+        font-size: 4em;
     }
     .media-section h3{
-        font-size: 1.5em;
+        font-size: 2.5em;
     }
     .media-section ul{
         margin-top: 0.5em;
-        font-size: 1em;
+        font-size: 1.5em;
         text-align: center;
     }
     .media-section li{
@@ -613,6 +617,10 @@ footer p{
         grid-template-rows: 100%;
         grid-template-columns: 100%;
         align-items: flex-end;
+    }
+    #events td{
+        font-size: 1.5em;
+        padding: 1em;
     }
     #form{
         top: 96%;
@@ -666,6 +674,10 @@ footer p{
     #media{
         grid-template-columns: 48% 48%;
     }
+    #media h3{
+        text-align: left;
+        margin-left: 4em;
+    }
     .media-container h2{
         margin-bottom: 1em;
     }
@@ -699,6 +711,10 @@ footer p{
     }
     #events{
         background-attachment: fixed;
+    }
+    #events td{
+        font-size: 1.2em;
+        padding: 0.5em;
     }
     #contact{
         background-attachment: fixed;

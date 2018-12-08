@@ -45,20 +45,21 @@ function showScrollButtons(){
     if(window.scrollY == 0){
         upBtn.style.display = "none";
         downBtn.style.display = "block";
-        toggleFullScreen(false);
+        //toggleFullScreen(false);
     }
     else if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 1){
         downBtn.style.display = "none";
         upBtn.style.display = "block";
-        toggleFullScreen(true);
+        //toggleFullScreen(true);
     }
     else{
         upBtn.style.display = "block";
         downBtn.style.display = "block";
-        toggleFullScreen(true);
+        //toggleFullScreen(true);
     }
 }
 
+/*
 function toggleFullScreen(goFullScreen) {
     let doc = window.document;
     let docEl = doc.documentElement;
@@ -80,6 +81,7 @@ function toggleFullScreen(goFullScreen) {
         cancelFullScreen.call(doc);
     }
 }
+*/
 
 function scrollDown(id){
     document.getElementById(id.toString()).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
