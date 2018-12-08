@@ -1,8 +1,12 @@
 const pics = [
-    "../img/gallery/gallery_live.jpg",
+    /*"../img/gallery/gallery_live.jpg",
     "../img/gallery/gallery_stage.jpg",
     "../img/gallery/gallery_playing.jpg",
-    "../img/gallery/gallery_portrait.jpg",
+    "../img/gallery/gallery_portrait.jpg",*/
+    "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_live.jpg?raw=true",
+    "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_playing.jpg?raw=true",
+    "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_portrait.jpg?raw=true",
+    "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_stage.jpg?raw=true"    
 ]
 
 const exitBtn = document.getElementById("exit");
