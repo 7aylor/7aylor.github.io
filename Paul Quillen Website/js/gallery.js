@@ -30,8 +30,9 @@ function openGallery(){
     img.src = pics[currImg];
     currY = window.scrollY;
     window.addEventListener('scroll', noscroll);
-    //wait for image to load before allowing another click
-    img.onload = () => updateCounterAndCanClick();
+    //wait for image to load before allowing another click,
+    //not using arrow function because ie doesn't support it
+    img.onload = function() { updateCounterAndCanClick() };
 }
 
 function prevPic(){
@@ -45,7 +46,7 @@ function prevPic(){
 
         img.src = pics[currImg];
         //wait for image to load before allowing another click
-        img.onload = () => updateCounterAndCanClick();
+        img.onload = function() { updateCounterAndCanClick() };
     }
 }
 
@@ -60,7 +61,7 @@ function nextPic(){
     
         img.src = pics[currImg];
         //wait for image to load before allowing another click
-        img.onload = () => updateCounterAndCanClick();
+        img.onload = function() { updateCounterAndCanClick() };
     }
 }
 

@@ -18,11 +18,8 @@ const isChrome = !!window.chrome && !!window.chrome.webstore;
 // Firefox 1.0+
 const isFirefox = typeof InstallTrigger !== 'undefined';
 
+//used to enable scrolling buttons if on chrome or firefox
 let enableScrolling = false;
-
-window.onload = function() {
-    
-}
 
 showScrollButtons();
 
@@ -45,43 +42,16 @@ function showScrollButtons(){
     if(window.scrollY == 0){
         upBtn.style.display = "none";
         downBtn.style.display = "block";
-        //toggleFullScreen(false);
     }
     else if(window.scrollY + window.innerHeight >= document.body.scrollHeight - 1){
         downBtn.style.display = "none";
         upBtn.style.display = "block";
-        //toggleFullScreen(true);
     }
     else{
         upBtn.style.display = "block";
         downBtn.style.display = "block";
-        //toggleFullScreen(true);
     }
 }
-
-/*
-function toggleFullScreen(goFullScreen) {
-    let doc = window.document;
-    let docEl = doc.documentElement;
-
-    if(goFullScreen) {
-        let requestFullScreen = docEl.requestFullscreen ||
-                                docEl.mozRequestFullScreen ||
-                                docEl.webkitRequestFullScreen ||
-                                docEl.msRequestFullscreen;
-
-        requestFullScreen.call(docEl);
-    }
-    else {
-        let cancelFullScreen = doc.exitFullscreen ||
-                               doc.mozCancelFullScreen ||
-                               doc.webkitExitFullscreen ||
-                               doc.msExitFullscreen;
-
-        cancelFullScreen.call(doc);
-    }
-}
-*/
 
 function scrollDown(id){
     document.getElementById(id.toString()).scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
@@ -122,7 +92,6 @@ function getClosestSection(up){
     let newSection = 0;
     for(let i = 0; i < sections.length; i++){
         let val = yPos - document.getElementById(sections[i]).offsetHeight * i;
-        //console.log(sections[i] + " " + val);
         if(Math.abs(val) < shortest){
             if(val < 0){
                 newSection = i - 1;

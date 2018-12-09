@@ -136,7 +136,7 @@ i{
     margin: 0 auto;
     width: 100%;
     height: 100vh;
-    background: url("../img/cover_sm.jpg");
+    background: url("../img/bg/banner_bg.jpg");
     background-repeat: no-repeat;
     background-position: center center; 
     background-size: cover;
@@ -221,7 +221,7 @@ blockquote{
 }
 #music{
     width: 100%;
-    background: url("../img/stage1.jpg");
+    background: url("../img/bg/music-bg.jpg");
     background-repeat: no-repeat;
     background-position: left; 
     background-size: cover;
@@ -391,7 +391,7 @@ blockquote{
 #events{
     display: block;
     text-align: center;
-    background: url("../img/ocean3.jpg") no-repeat top;
+    background: url("../img/bg/shows_bg.jpg") no-repeat top;
     background-size: cover;
     color: white;
 }
@@ -418,7 +418,7 @@ blockquote{
 #contact{
     display: block;
     text-align: left;
-    background: url("../img/sunglasses.jpg") no-repeat right;
+    background: url("../img/bg/contact_bg.jpg") no-repeat right;
     background-size: cover;
     background-attachment: fixed;
     width: 100%;
@@ -442,7 +442,7 @@ footer p{
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 0.8em;
-    color: white;
+    color: black;
 }
 /*phones*/
 @media only screen and (max-width: 600px) {
@@ -629,7 +629,9 @@ footer p{
         color: #FFFAE6;
     }
     section{
+        display: -ms-grid;
         display: grid;
+        -ms-grid-columns: 45% 45%;
         grid-template-columns: 45% 45%;
     }
     section h2{
@@ -658,7 +660,7 @@ footer p{
     #media{
         grid-template-columns: 48% 48%;
     }
-    #media h3{
+    .media-container h3{
         text-align: left;
         margin-left: 4em;
     }
@@ -709,41 +711,6 @@ footer p{
         transform: translateY(-95%);
     }
 }
-/*ie*/
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    #banner, #music, #events, #contact{
-        background-attachment: scroll;
-    }
-    #links li, #navbar li{
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-    }
-    #links, #navbar ul{
-        justify-content: space-between;
-    }
-    section{
-        display: -ms-grid;
-        -ms-grid-columns: 400px, 400px;
-        -ms-grid-rows: 1fr;
-        justify-content: center;
-    }
-    #form{
-        top: 85%;
-    }
-    
-}
-/*edge*/
-@supports (-ms-ime-align: auto){
-    #banner, #music, #events, #contact{
-        background-attachment: scroll;
-    }
-    #links, #navbar ul{
-        justify-content: space-around;
-    }
-    #form{
-        top: 85%;
-    }
-}
 /*iOS*/
 @supports (-webkit-overflow-scrolling: touch) {
     #music, #contact{
@@ -778,7 +745,7 @@ footer p{
     .media-container .item{
         align-self: center;
     }
-    #media h3{
+    .media-section h3{
         text-align: left;
         margin-left: 4em;
         font-size: 1em;
@@ -792,5 +759,93 @@ footer p{
     }
     #gallery-img{
         max-height: 90vh;
+    }
+}
+/*ie*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    #banner, #music, #events, #contact{
+        background-attachment: scroll;
+    }
+    #links li, #navbar li{
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+    #links, #navbar ul{
+        justify-content: center;
+    }
+    section{
+        display: block;
+        justify-content: center;
+    }
+    #about, #music{
+        padding-top: 1em;
+    }
+    #about{
+        text-align: center;
+    }
+    blockquote{
+        padding-left: 1em;
+        text-align: left;
+    }
+    #eugene-weekly{
+        padding: 1em;
+    }
+    #portrait{
+        display: block;
+        margin: 0 auto;
+    }
+    .media-section{
+        margin: 0 auto;
+        padding-top: 1em;
+        padding-bottom: 1em;
+        width: 100%;
+        text-align: center;
+    }
+    #media h2{
+        font-size: 2em;
+    }
+    .media-section h3{
+        font-size: 1.5em;
+    }
+    .media-section li{
+        text-align: center;
+        font-size: 1.2em;
+    }
+    #gallery{
+        height: 100%;
+        overflow: hidden;
+    }
+    #img-container{
+        display: block;
+        margin: 0 auto;
+    }
+    #form{
+        top: 85%;
+    }
+    
+}
+/*edge*/
+@supports (-ms-ime-align: auto){
+    #banner, #music, #events, #contact{
+        background-attachment: scroll;
+    }
+    #links, #navbar ul{
+        justify-content: space-around;
+    }
+    #media h2{
+        font-size: 2em;
+    }
+    .media-section h3{
+        font-size: 1.5em;
+    }
+    .media-section li{
+        font-size: 1.2em;
+    }
+    #gallery{
+        height: 100%;
+        overflow: hidden;
+    }
+    #form{
+        top: 85%;
     }
 }
