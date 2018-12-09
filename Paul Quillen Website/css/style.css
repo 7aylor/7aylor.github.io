@@ -175,7 +175,6 @@ i{
 }
 #links li, #navbar li{
     list-style: none;
-    /*margin: 5px 20px 5px 20px;*/
     margin: 0.25em 0 0.25em 0;
     font-size: 1.5em;
 }
@@ -237,11 +236,15 @@ blockquote{
     padding: 0;
     color: white;
 }
+#music h2{
+    font-size: 2.5em;
+}
 #music #bandcamp{
     margin-left: auto;
     margin-right: auto;
 }
 #music h3{
+    font-size: 1.5em;
     padding: 1em;
 }
 #music p{
@@ -260,7 +263,7 @@ blockquote{
     justify-items: center;
     justify-content: center;
     align-items: center;
-    align-content: space-evenly;
+    align-content: center;
 }
 .media-container{
     padding-top: 0.25em;
@@ -344,8 +347,6 @@ blockquote{
 }
 #img-container{
     position: absolute;
-    width: 80vw;
-    height: 80vh;
     transform: translateY(-50%);
     top: 50%;
     left: 10%;
@@ -359,15 +360,16 @@ blockquote{
     justify-items: center;
 }
 #counter{
-    position: absolute;
+    display: block;
+    position: fixed;
     top: 0;
     left: 0;
-    padding: 0.5em;
+    padding: 1.5em;
     font-size: 10px;
 }
 #gallery-img{
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     align-self: center;
 }
@@ -386,11 +388,6 @@ blockquote{
     border-radius: 10px 0 0 10px;
 
 }
-#live{
-    border-radius: 5px;
-    box-shadow: 3px 3px 5px #B39571;
-}
-
 #events{
     display: block;
     text-align: center;
@@ -416,6 +413,7 @@ blockquote{
 }
 .date{
     font-weight: bold;
+    color: #050709;
 }
 #contact{
     display: block;
@@ -502,8 +500,7 @@ footer p{
         font-size: 1em;
     }
     #gallery-img{
-        max-height: 70vh;
-        max-width: 70vh;
+        max-width: 90vw;
     }
     .gallery-arrow{
         font-size: 0.5em;
@@ -513,28 +510,10 @@ footer p{
     #events-container table{
         font-size: 1em;
     }
-    /*
-    .media-container{
-
-    }
-    #media-left{
-        margin: 0 auto;
-        padding-top: 1em;
-        padding-bottom: 1em;
-        height: auto;
-        width: 90vw;
-    }
-    */
     .media-section ul{
         margin-top: 0.5em;
         font-size: 0.8em;
         text-align: center;
-    }
-    #live{
-        display: none;
-        margin: 1em auto;
-        height: 30vh;
-        width: auto;
     }
     #events{
         grid-template-rows: 100%;
@@ -622,10 +601,6 @@ footer p{
         height: 1em;
         width: 1em;
     }
-    #live{
-        height: 40vh;
-        width: auto;
-    }
     #events{
         grid-template-rows: 100%;
         grid-template-columns: 100%;
@@ -677,12 +652,8 @@ footer p{
     #about p, blockquote{
         font-size: 1.5em;
     }
-    #live{
-        margin: 0 auto;
-        height: 50vh;
-        width: auto;
-        max-width: 45vw;
-        max-height: 45vw;
+    #bandcamp{
+        font-size: 2em;
     }
     #media{
         grid-template-columns: 48% 48%;
@@ -703,6 +674,7 @@ footer p{
         height: 70vh;
         width: 40vw;
         padding: 2em;
+        align-self: center;
     }
     #media a:hover{
         color: #727432;
@@ -779,7 +751,7 @@ footer p{
     }
 }
 /*landscape*/
-@media only screen and (orientation: landscape) and (max-width: 800px){
+@media only screen and (orientation: landscape) and (max-width: 1000px){
     #banner{
         height: 100vw;
     }
@@ -789,8 +761,8 @@ footer p{
     #portrait{
         height: 45vw;
     }
-    .media-container{
-        height: 45vw;
+    #events td{
+        padding: 0.5em;
     }
     .media-section{
         padding: 0.25em;
@@ -799,7 +771,26 @@ footer p{
         grid-template-columns: 50% 50%;
         justify-content: space-between;
     }
+    .media-container h2{
+        font-size: 2em;
+        color: #050709;
+    }
+    .media-container .item{
+        align-self: center;
+    }
+    #media h3{
+        text-align: left;
+        margin-left: 4em;
+        font-size: 1em;
+    }
+    .media-container{
+        height: 90vw;
+    }
     .media-section li{
         text-align: left;
+        font-size: 1em;
+    }
+    #gallery-img{
+        max-height: 90vh;
     }
 }

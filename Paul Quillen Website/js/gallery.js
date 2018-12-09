@@ -18,6 +18,7 @@ const img = document.getElementById("gallery-img");
 
 let currImg = 0;
 let currY = 0;
+let canClickArrow = false;
 
 function exitGallery(){
     window.removeEventListener('scroll', noscroll);
@@ -28,35 +29,44 @@ function openGallery(){
     gallery.style.display = 'block';
     img.src = pics[currImg];
     currY = window.scrollY;
-    updateCounter();
     window.addEventListener('scroll', noscroll);
+    //wait for image to load before allowing another click
+    img.onload = () => updateCounterAndCanClick();
 }
 
 function prevPic(){
-    currImg--;
-    
-    if(currImg == -1){
-        currImg = pics.length - 1;
-    }
+    if(canClickArrow == true){
+        canClickArrow = false;
+        currImg--;
+        
+        if(currImg == -1){
+            currImg = pics.length - 1;
+        }
 
-    img.src = pics[currImg];
-    
-    updateCounter();
+        img.src = pics[currImg];
+        //wait for image to load before allowing another click
+        img.onload = () => updateCounterAndCanClick();
+    }
 }
 
 function nextPic(){
-    currImg++;
+    if(canClickArrow == true){
+        canClickArrow = false;
+        currImg++;
+        
+        if(currImg == pics.length){
+            currImg = 0;
+        }
     
-    if(currImg == pics.length){
-        currImg = 0;
+        img.src = pics[currImg];
+        //wait for image to load before allowing another click
+        img.onload = () => updateCounterAndCanClick();
     }
-
-    img.src = pics[currImg];
-    updateCounter();
 }
 
-function updateCounter(){
+function updateCounterAndCanClick(){
     counter.innerHTML = currImg + 1 + " / " + pics.length;
+    canClickArrow = true;
 }
 
 function noscroll() {
