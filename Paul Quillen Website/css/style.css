@@ -124,6 +124,7 @@ i{
     position: fixed;
     padding: 0.25em;
     right: 0;
+    z-index: 2;
 }
 #up{
     top: 0;
@@ -399,6 +400,9 @@ blockquote{
     margin: 0;
     padding: 1em;
     font-size: 3em;
+}
+#events p{
+    font-size: 1.5em;
 }
 #events-container table{
     margin-left: auto;
