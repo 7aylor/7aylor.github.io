@@ -6,8 +6,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link href="font/Butler_Black.otf">
-        <link href="font/OpenSans-Regular.ttf">
+        <link href="font/Butler_Black.otf" rel='stylesheet' type='text/css'>
+        <link href="font/OpenSans-Regular.ttf" rel='stylesheet' type='text/css'>
         <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     </head>
@@ -43,14 +43,14 @@
             <section id="about">
                 <img src="img/portait1.jpg" id="portrait" alt="Image of Paul Quillen">
                 <div>
-                    <h2>About</h2>
+                    <h2 class="section-title">About</h2>
                     <p>Paul Quillen is a long-time musician living in Eugene, Oregon.</p>
                     <blockquote>"Quillen's acoustic ballads are dusky little jewels, or the skyline of a city night: reachable but somehow far away. Quillen put out a debut EP this year, and it's terrific. As are his live performances. Eugene doesn't deserve your songs, Paul, but thanks for sharing them anyways."<span id="eugene-weekly">- Eugene Weekly</span></blockquote>
                 </div>
             </section>
             <section id="music">
                 <div>
-                    <h2>Music</h2>
+                    <h2 class="section-title">Music</h2>
                     <h3>Listen to Paul's latest self-titled EP</h3>
                     <div id="bandcamp-loader" class="loader"></div>
                     <iframe style="border: 0; width: 100%; max-width: 700px; height: 340px; font-size: 16px;" src="https://bandcamp.com/EmbeddedPlayer/album=900000138/size=large/bgcol=333333/linkcol=ffffff/artwork=small/transparent=true/"  id="bandcamp"><a href="http://paulquillen.bandcamp.com/album/paul-quillen">Paul Quillen by Paul Quillen</a></iframe>
@@ -58,7 +58,7 @@
                 </div>
             </section>
             <section id="events">
-                <h2>Upcoming Shows</h2>
+                <h2 class="section-title">Upcoming Shows</h2>
                 <!--use following p tag if no current shows are lined up. Make sure to comment out tr when no shows lined up-->
                 <p>More shows coming soon...</p>
                 <div id="events-container">
@@ -76,12 +76,12 @@
             </section>
             <section id="media">
                 <div class="media-container" id="media-left">
-                    <h2>Media</h2>
+                    <h2 class="section-title">Media</h2>
                     <div class="media-section">
                         <h3 class="item"><i class="far fa-newspaper"></i>Articles</h3>
                         <ul>
                             <li><a href="https://www.eugeneweekly.com/2018/07/05/after-25-years-an-ep/" rel="external" target="_blank">After 25 Years An EP - Eugene Weekly</a></li>
-                            <li><a href="https://eugeneweekly.com/2012/09/06/funky-oregonisms/ rel="external" target="_blank">Funky Oregonisms - Eugene Weekly</a></li>
+                            <li><a href="https://eugeneweekly.com/2012/09/06/funky-oregonisms/" rel="external" target="_blank">Funky Oregonisms - Eugene Weekly</a></li>
                         </ul>
                     </div>
                     <div class="media-section">
@@ -110,14 +110,14 @@
                     <div id="exit" class="gallery-a" onclick="exitGallery()">&times;</div>
                     <div id="full-img">
                         <p id="counter"></p>
-                        <div id="img-container"><img id="gallery-img"></div>
+                        <div id="img-container"><img id="gallery-img" alt="gallery image of Paul Quillen"></div>
                         <div class="gallery-arrow gallery-a" id="left-arrow" onclick="prevPic()">&#10094;</div>
                         <div class="gallery-arrow gallery-a" id="right-arrow" onclick="nextPic()">&#10095;</div>
                     </div>
             </div>
             <section id="contact">
                 <div id="form">
-                    <h2>Contact</h2>
+                    <h2 class="section-title">Contact</h2>
                     <p>For booking and general questions, <a href="mailto:paulquillen@gmail.com" target="_blank">email</a> Paul.</p>
                 </div>
             </section>

@@ -1,15 +1,17 @@
 /*holds the images in the gallery. Try to follow format below. Place image in gallery folder
-then update this array.*/
+then update this array with the file path and name. Keep the image in jpg format and try to
+make the file size small otherwise load times will be long.*/
 const pics = [
-    /*"../img/gallery/gallery_live.jpg",
+    "../img/gallery/gallery_live.jpg",
     "../img/gallery/gallery_stage.jpg",
     "../img/gallery/gallery_stage_all.jpg",
     "../img/gallery/gallery_playing.jpg",
-    "../img/gallery/gallery_portrait.jpg",*/
-    "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_live.jpg?raw=true",
+    "../img/gallery/gallery_portrait.jpg"
+    /*"https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_live.jpg?raw=true",
     "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_playing.jpg?raw=true",
     "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_portrait.jpg?raw=true",
     "https://github.com/7aylor/7aylor.github.io/blob/master/Paul%20Quillen%20Website/img/gallery/gallery_stage.jpg?raw=true"    
+    */
 ];
 
 //get elements on the page
@@ -51,11 +53,11 @@ function openGallery(){
 //called from prev arrow being clicked. Decrements image counter and updates displaying image
 function prevPic(){
     "use strict";
-    if(canClickArrow == true){
+    if(canClickArrow === true){
         canClickArrow = false;
         currImg--;
         
-        if(currImg == -1){
+        if(currImg === -1){
             currImg = pics.length - 1;
         }
 
@@ -69,11 +71,11 @@ function prevPic(){
 //called from next arrow being clicked. Increments image counter and updates displaying image
 function nextPic(){
     "use strict";
-    if(canClickArrow == true){
+    if(canClickArrow === true){
         canClickArrow = false;
         currImg++;
         
-        if(currImg == pics.length){
+        if(currImg === pics.length){
             currImg = 0;
         }
     
@@ -96,4 +98,3 @@ function noscroll() {
     "use strict";
     window.scrollTo(0, currY);
 }
-
