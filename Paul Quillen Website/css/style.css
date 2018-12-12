@@ -71,10 +71,6 @@ h1{
     margin: 0;
     padding: 0;
 }
-h2{
-    margin: 0;
-    padding: 0;
-}
 button{
     background: none;
     border: none;
@@ -170,6 +166,7 @@ i{
     width: 88vh;
     max-width: 80vw;
     height: auto;
+    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.15);
     justify-content: space-evenly;
     font-family: var(--font-normal);
@@ -240,21 +237,12 @@ blockquote{
     padding: 0;
     color: white;
 }
-/*
-#music h2{
-    font-size: 2.5em;
-}
-*/
 #music #bandcamp{
     margin-left: auto;
     margin-right: auto;
 }
-#music h3{
+.music-text{
     font-size: 1.5em;
-    padding: 1em;
-}
-#music p{
-    font-size: 1em;
     padding: 1em;
 }
 #music a{
@@ -282,17 +270,6 @@ blockquote{
 #media i{
     margin-right: 0.5em;
 }
-/*
-.media-container h2{
-    margin: 0;
-    padding: 0;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    text-align: center;
-}*/
-#media h3{
-    font-weight: bold;
-}
 #media a{
     color: #0B0602;
 }
@@ -307,6 +284,8 @@ blockquote{
     padding: 0;
     width: 100%;
     text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 .media-section ul{
     margin: 0;
@@ -318,7 +297,7 @@ blockquote{
     margin-top: 0.5em;
     margin-bottom: 0.5em;
     padding: 0;
-    align-content: end;
+    align-content: flex-end;
 }
 #gallery{
     display: none;
@@ -331,6 +310,7 @@ blockquote{
     width: 100%;
     height: 100%;
     overflow: auto;
+    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.9);
     color: white;
     font-size: 3em;
@@ -358,7 +338,6 @@ blockquote{
     top: 50%;
     left: 10%;
     right: 10%;
-    justify-self: center;
     align-self: center;
     display: flex;
     flex-wrap: wrap;
@@ -384,6 +363,7 @@ blockquote{
     position: fixed;
     padding: 0.25em;
     top: 45%;
+    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.8);
 }
 #left-arrow{
@@ -401,12 +381,6 @@ blockquote{
     background-size: cover;
     color: white;
 }
-/*
-#events h2{
-    margin: 0;
-    padding: 1em;
-    font-size: 3em;
-}*/
 #events p{
     font-size: 1.5em;
 }
@@ -418,6 +392,7 @@ blockquote{
     font-size: 1.2em;
 }
 #events-container tr:nth-child(odd){
+    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.5);
     color: white;
 }
@@ -438,8 +413,14 @@ blockquote{
 #contact a{
     color: white;
 }
+#contact .section-title{
+    text-align: left;
+    padding: 0;
+    padding-bottom: 0.5em;
+}
 #form{
     position: relative;
+    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.75);
     padding: 1em;
     color: white;
@@ -475,11 +456,6 @@ footer p{
         font-size: 2em;
         font-weight: bold;
     }
-    /*
-    #about h2{
-        margin-bottom: 0.1em;
-        text-align: center;
-    }*/
     #about{
         text-align: justify;
         align-items: baseline;
@@ -510,10 +486,6 @@ footer p{
         min-height: 35vh;
         width: 90vw;
     }
-    /*
-    .media-container h2{
-        font-size: 1.5em;
-    }*/
     .media-container i{
         font-size: 1em;
     }
@@ -538,11 +510,6 @@ footer p{
         grid-template-columns: 100%;
         align-items: flex-end;
     }
-    /*
-    #events h2{
-        font-size: 2em;
-    }
-    */
     #events table{
         width: 98%;
     }
@@ -559,7 +526,7 @@ footer p{
 /*tablets*/
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
     #title{
-        color: #FFFAE6;
+        color: #050709;
         font-size: 4em;
     }
     #navbar{
@@ -575,11 +542,6 @@ footer p{
     #about{
         align-items: baseline;
     }
-    /*
-    #about h2{
-        margin-bottom: 0.1em;
-        text-align: center;
-    }*/
     #about p{
         margin: 0 1em 0 1em;
     }
@@ -596,13 +558,6 @@ footer p{
         margin-top: 0.25em;
         margin-bottom: 0.25em;
         width: 90vw;
-    }
-    /*
-    .media-container h2{
-        font-size: 4em;
-    }*/
-    .media-section h3{
-        font-size: 2.5em;
     }
     .media-section ul{
         margin-top: 0.5em;
@@ -656,12 +611,6 @@ footer p{
         -ms-grid-columns: 45% 45%;
         grid-template-columns: 45% 45%;
     }
-    /*
-    section h2{
-        margin: 10px;
-        padding: 0;
-        font-size: 32px;
-    }*/
     #navigator a:hover{
         color: inherit;
     }
@@ -674,6 +623,10 @@ footer p{
         max-width: 50vh;
         max-height: 50vh;
     }
+    #about .section-title{
+        text-align: left;
+        padding-left: 0;
+    }
     #about p, blockquote{
         font-size: 1.5em;
     }
@@ -683,14 +636,10 @@ footer p{
     #media{
         grid-template-columns: 48% 48%;
     }
-    .media-container h3{
+    .media-container .item{
         text-align: left;
-        margin-left: 4em;
+        margin-left: 3em;
     }
-    /*
-    .media-container h2{
-        margin-bottom: 1em;
-    }*/
     .media-section{
         display: grid;
         grid-template-columns: 50% 50%;
@@ -762,25 +711,17 @@ footer p{
         grid-template-columns: 50% 50%;
         justify-content: space-between;
     }
-    /*
-    .media-container h2{
-        font-size: 2em;
-        color: #050709;
-    }*/
     .media-container .item{
         align-self: center;
-    }
-    .media-section h3{
         text-align: left;
         margin-left: 4em;
-        font-size: 1em;
     }
     .media-container{
         height: 90vw;
     }
     .media-section li{
         text-align: left;
-        font-size: 1em;
+        font-size: 0.75em;
     }
     #gallery-img{
         max-height: 90vh;
@@ -802,11 +743,19 @@ footer p{
         display: block;
         justify-content: center;
     }
+    .section-title{
+        text-align: center;
+        font-size: 2.5em;
+    }
     #about, #music{
         padding-top: 1em;
     }
     #about{
         text-align: center;
+    }
+    #about .section-title{
+        text-align: center;
+        padding-left: 0;
     }
     blockquote{
         padding-left: 1em;
@@ -821,16 +770,15 @@ footer p{
     }
     .media-section{
         margin: 0 auto;
-        padding-top: 1em;
-        padding-bottom: 1em;
+        padding-top: 0.5em;
+        padding-bottom: 0.5em;
         width: 100%;
         text-align: center;
     }
-    /*
-    #media h2{
-        font-size: 2em;
-    }*/
-    .media-section h3{
+    .media-section .item{
+        padding: 0;
+        margin: 0;
+        text-align: center;
         font-size: 1.5em;
     }
     .media-section li{
@@ -848,7 +796,6 @@ footer p{
     #form{
         top: 85%;
     }
-    
 }
 /*edge*/
 @supports (-ms-ime-align: auto){
@@ -858,11 +805,10 @@ footer p{
     #links, #navbar ul{
         justify-content: space-around;
     }
-    /*
-    #media h2{
-        font-size: 2em;
-    }*/
-    .media-section h3{
+    .section-title{
+        font-size: 2.5em;
+    }
+    .media-section .item{
         font-size: 1.5em;
     }
     .media-section li{
