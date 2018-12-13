@@ -41,23 +41,19 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 @font-face {
-    font-family: butler;
-    src: url(../font/Butler_Black.otf);
+    font-family: 'butler';
+    src: url(../font/Butler_Black.otf) format('opentype');
 }
-
 @font-face {
     font-family: 'open-sans';
-    src: url(../font/OpenSans-Regular.ttf);
+    src: url(../font/OpenSans-Regular.ttf) format('truetype');
 }
-
 :root {
     --font-heading: 'butler', 'Cinzel', serif; 
     --font-normal: 'open-sans', sans-serif;
     --link-hover-color: #0B0602;
 }
-z
 body{
     padding: 0;
     margin: 0;
@@ -694,9 +690,17 @@ footer p{
 @media only screen and (orientation: landscape) and (max-width: 1000px){
     #banner{
         height: 100vw;
+        justify-content: flex-start;
+        height: auto;
+    }
+    #title{
+        color: #F2DEC5;
     }
     section{
         height: 100vw;
+    }
+    #about p, blockquote{
+        font-size: 1em;
     }
     #portrait{
         height: 45vw;
@@ -725,6 +729,9 @@ footer p{
     }
     #gallery-img{
         max-height: 90vh;
+    }
+    #contact{
+        height: 100vh;
     }
 }
 /*ie*/
