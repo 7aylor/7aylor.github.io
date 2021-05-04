@@ -9,6 +9,8 @@
 
 <li><h2><a href="https://7aylor.github.io/OMGJam5/index.html">Rock and Rolling Rocks: Canvas/JS game</a></h2></li>
 
-<li><h2><a href="https://7aylor.github.io/HPHY323-Human%20AnatomyII-GradeEstimator.html">UO HPHY 3232 - Human Anatomoy II - Grade Estimator</a></h2></li>
+<li><h2><a href="https://7aylor.github.io/HPHY323-Human%20AnatomyII-GradeEstimator.html">UO HPHY 323 - Human Anatomoy II - Grade Estimator</a></h2></li>
+
+<li><h2><a href="https://7aylor.github.io/HPHY325-Human%20AnatomyIII-GradeEstimator.html">UO HPHY 325 - Human Anatomoy III - Grade Estimator</a></h2></li>
 
 </ul>
