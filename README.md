@@ -1,4 +1,4 @@
-# <h1>Taylor Buchheit's portfolio</h1>
+<h1>Taylor Buchheit's portfolio</h1>
 
 <ul>
 <li><h2><a href="https://7aylor.github.io/Paul%20Quillen%20Website/index.html">Paul Quillen's website</a></h2></li>
