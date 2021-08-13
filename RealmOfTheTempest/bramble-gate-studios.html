@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/30c9dd8073.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+    <title>Bramble Gate Studios</title>
+  </head>
+  <body>
+    <header class="bramblegate jumbotron text-center bg mb-0">
+      <div class="items">
+        <img src="img/bramble-gate.png" alt="Bramble Gate Studios" id="brambleImg">
+      </div>
+    </header>
+    <section class="post-container">
+      <div class="posts">
+        <div class="post">
+          <img src="img/portraits/Ghoul_Black.png" alt="Image of Zombie" class="portrait"/>
+          <div class="post-text">
+            <h2>About Bramble Gate</h2>
+            <p>Bramble Gate Studios started as an alias for the development of Realm of the Tempest, which is a game that I created to help cope with chronic pain.  It's meant to represent perseverance through suffering, and has become a symbol of hope.</p>
+            <p>To learn more about Realm of the Tempest, <a href=".\index.html">click here.</a></p>
+          </div>
+        </div>
+        <hr />
+        <div class="post">
+          <img src="img/portraits/Ash_Reaper_Blue_360.png" alt="Image of Ash Reaper" class="portrait"/>
+          <div class="post-text">
+            <h2>Bramble Gate Academy</h2>
+            <p>A dream that I hope to realize one day is to create free educational material about the topics I have grown to love through game development.  As a way to give back to the community, I'd be honored to share what I've learned about high level math, theoretical computer science, art and color theory, and mental health.  Realm of the Tempest is an archive of lessons I've learned, and revisit regularly for personal growth, and that is a process I'd like to share.  </p>
+            
+            <p>If you'd like to support this ambition, you can donate to us through Patreon. You can also join the community on Discord.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <a href="./bramble-gate-studios.html">
+        <div class="logo">
+          <img src="img/logo.png" alt="Bramble Gate Studios Logo" id="logo"/>
+          <p>&copy;<span id="year"></span> Bramble Gate Studios</p>
+        </div>
+      </a>
+        <div class="links support">
+          <a href="https://www.patreon.com/BrambleGateStudios" target="_blank"><i class="fab fa-patreon"></i></a>
+            <a href="https://paypal.me/BrambleGateStudios" target="_blank"><i class="fab fa-paypal"></i></a>
+        </div>
+        <div class="links social">
+            <a href="https://twitter.com/BrambleGate" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com/BrambleGateStudios" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.twitch.tv/otaykins" target="_blank"><i class="fab fa-twitch"></i></a>
+            <a href="https://discord.gg/cmTyGgj" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://soundcloud.com/otays" target="_blank"><i class="fab fa-soundcloud"></i></a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(new function()
+      {
+        let year = new Date().getFullYear();
+        $("#year").html(year);
+      });
+    </script>
+  </body>
+</html>

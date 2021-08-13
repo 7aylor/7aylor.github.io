@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+}
+.jt {
+    background-image: url("../img/background-haxlyn.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(100%);
+    color: white;
+    height: 100vh;
+    justify-content: center;
+    z-index: 2;
+    padding: 0px !important;
+    border-radius: 0 !important;
+    border-bottom: 3px solid black;
+}
+#titleImg {
+    margin: 0 auto;
+    display: block;
+    height: 75%;
+    width: 75%;
+    filter: drop-shadow(3px 3px 5px #000);
+}
+.bramblegate {
+    background-image: url("../img/etzland-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(100%);
+    color: white;
+    height: 100vh;
+    justify-content: center;
+    z-index: 2;
+    padding: 0px !important;
+    border-radius: 0 !important;
+    border-bottom: 3px solid black;
+}
+#brambleImg {
+    margin: 0 auto;
+    display: block;
+    margin-top: 30px;
+    height: 95%;
+    width: 95%;
+    filter: drop-shadow(4px 4px 6px #000);
+}
+li {
+    list-style-type: square;
+}
+.items {
+    display: inline-block;
+}
+#downloadBtn {
+    font-size: 1.5em;
+    position: absolute;
+    width: 100%;
+    bottom: 4vh;
+    left: 50%;
+    background-color: #111;
+    color: white;
+    box-shadow: 1px 1px 11px black;
+}
+.post-container{
+    margin: 0;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    background-image: url("../img/postsbackground.png");
+    background-repeat:repeat-y;
+    background-size: 100% auto;
+    filter: brightness(100%);
+}
+.post-container p {
+    margin: 0;
+    padding: 1em;
+}
+.posts{
+    margin: 0 auto;
+    width: 80vw;
+    background-image: linear-gradient(to bottom right, #252525, #151515);
+    color: #808080;
+    border: 2px solid gray;
+    outline: 3px solid black;
+    box-shadow: 0 0 10px 6px #111;
+}
+.post {
+    display: flex;
+    align-items: center;
+}
+.post-text p, .post-text h2
+{
+    margin: 0 1em 0 1em;
+    padding: 5px;
+    color: #B0B0B0;
+}
+.post-text p {
+    text-align: justify;
+}
+.portrait {
+    border: 2px solid gray;
+    outline: 3px solid black;
+    box-shadow: 0 0 3px 3px gray;
+}
+.contributer {
+    color: #E1C16C;
+}
+.no-contributers {
+    color: #ff9025;
+}
+.donors {
+    color: #0DF;
+}
+.button-links {
+    margin: 5px;
+    border: 0px solid black;
+    outline: 0px solid black;
+    box-shadow: 0 0 0px 0px gray;
+    padding-left: 15px;
+}
+.button-container {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+.button-container:hover .overlay {
+    opacity: 1;
+    filter: brightness(130%);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: .3s ease;
+}
+hr {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), white, rgba(0, 0, 0, 0));
+}
+footer p {
+    padding: 0;
+    margin: 0 0 0 15px;
+}
+footer {
+    border-top: 2px solid black;
+    padding: 10px;
+    background-image: linear-gradient(180deg, #111, rgb(24, 24, 24));
+    color: #E1C16C;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+a:link {
+    color: #E1C16C;
+}
+a:visited  {
+    color: #E1C16C;
+}
+.vertical-space {
+    border: 2px solid white;
+    margin: 0 10px 0 10px;
+    height: 50px;
+}
+.links i {
+    font-size: 32px;
+    margin: 8px;
+}
+.support a {
+    color: white;
+}
+.social a {
+    color: #E1C16C;
+}
+.support a:hover{
+    color: #E1C16C;
+    cursor: pointer;
+}
+.social a:hover{
+    color: white;
+    cursor: pointer;
+}
+#logo {
+    height: 50px;
+    width: auto;
+}
+.links {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    #downloadBtn {
+        max-width: 60vw;
+        margin-left: -30vw;
+    }
+    .overlay * {
+        max-width: 60vw;
+    }
+    .post {
+        display: block;
+        padding: 0.5em;
+    }
+    .post h2 {
+        text-align: center;
+    }
+    .portrait {
+        display: block;
+        width: 50%;
+        margin: 1em auto; 
+    }
+    .button-links {
+        justify-items: center;
+    }
+    .img-btn {
+        display: block;
+        margin: 0 auto;
+        max-width: 60vw;
+    }
+    .footer {
+        display: block;
+        margin: 0 auto;
+    }
+    .logo {
+        justify-content: center;
+    }
+    .links {
+        justify-content: center;
+    }
+}
+@media (min-width: 801px) {
+    #downloadBtn {
+        width: 335px;
+        margin-left: -167px;
+    }
+    .post {
+        padding: 2em;
+    }
+    .portrait {
+        height: 240px;
+        width: 240px;
+    }
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .links {
+        justify-content: space-between;
+    }
+}
